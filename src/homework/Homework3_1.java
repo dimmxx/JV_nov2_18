@@ -3,14 +3,15 @@ import java.util.Scanner;
 
 public class Homework3_1 {
 
-    private static int len = 100; // the length of the field
-    private static int height = 100; // the height of the field
+    private static int len = 10; // the length of the field
+    private static int height = 10; // the height of the field
     private static int health = 100;
     private static int healthMoveDecrease = 5;
     private static int healthBigBombDecrease = 40;
     private static int healthSmallBombDecrease = 20;
     private static int healthBigMedIncrease = 40;
     private static int healthSmallMedIncrease = 20;
+    private static int move = 0;
 
     public static void main(String[] args) {
 
@@ -42,6 +43,7 @@ public class Homework3_1 {
                     pos++;
                 } else break;
                 checkMove(array, pos, high);
+                move++;
                 array[pos][high] = dog;
                 health -= healthMoveDecrease;
                 generateItems(array);
@@ -53,6 +55,7 @@ public class Homework3_1 {
                     pos--;
                 } else break;
                 checkMove(array, pos, high);
+                move++;
                 array[pos][high] = dog;
                 health -= healthMoveDecrease;
                 generateItems(array);
@@ -64,6 +67,7 @@ public class Homework3_1 {
                     high++;
                 } else break;
                 checkMove(array, pos, high);
+                move++;
                 array[pos][high] = dog;
                 health -= healthMoveDecrease;
                 generateItems(array);
@@ -75,6 +79,7 @@ public class Homework3_1 {
                     high--;
                 } else break;
                 checkMove(array, pos, high);
+                move++;
                 array[pos][high] = dog;
                 health -= healthMoveDecrease;
                 generateItems(array);
@@ -99,7 +104,7 @@ public class Homework3_1 {
         }
         System.out.println();
         System.out.println();
-        System.out.println("Health: " + health);
+        System.out.println("Moves: " + move + " Health: " + health);
     }
 
     public static void generateItems(char array[][]){
