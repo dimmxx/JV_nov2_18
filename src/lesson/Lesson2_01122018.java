@@ -15,7 +15,6 @@ public class Lesson2_01122018 {
 
         scan();
 
-
     }
 
     public static int[] generate(int n) {
@@ -62,7 +61,6 @@ public class Lesson2_01122018 {
         System.out.println(count);
         return array;
     }
-
 
     public static void discount(int n) {
         int discount = 0;

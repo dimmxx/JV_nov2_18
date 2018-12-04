@@ -14,8 +14,6 @@ public class Lesson3_03122018 {
         //arrCopy();
 
         line();
-
-
     }
 
     public static void tern(int t) {
@@ -84,30 +82,23 @@ public class Lesson3_03122018 {
 
     }
 
-
-
     public static void line(){
 
-        String str = "Hello World";
-        System.out.println(str.length());
-        System.out.println(str.charAt(0));
-        System.out.println(str.indexOf("H"));
-        System.out.println(str.indexOf("l"));
-        System.out.println(str.lastIndexOf("l"));
+        String address = "ftp://ukr.net/news/sports.html";
 
-        String address = "http://ukr.net/news/sport.html";
+        String protocol = address.substring(0, address.indexOf(":"));
 
-        String protocol = address.substring(0, address.indexOf("/") + 1);
+        String domain = address.substring(protocol.length() + 3);
+        domain = domain.substring(0, domain.indexOf("/"));
+        String path = address.substring(protocol.length() + 3 + domain.length());
 
-        String path;
-
-
-        String temp = address.substring(0, protocol.length() +1);
-
-        //String host = address.substring(temp.length(), );
+        System.out.println(address);
+        System.out.println("Protocol: " + protocol);
+        System.out.println("Domain: " + domain);
+        System.out.println("Path: " + path);
 
 
-        System.out.println(address.substring(0, protocol.length() +1));
+
 
 
 
