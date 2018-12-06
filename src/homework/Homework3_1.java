@@ -3,7 +3,10 @@ import java.util.Scanner;
 
 public class Homework3_1 {
 
-    private static int len = 10; // the length of the field
+// The aim of the game is to lead the dog to the exit (E).
+// Bombs and medkits are generated on every move.
+
+    private static int len = 5; // the length of the field
     private static int height = 10; // the height of the field
     private static int health = 100;
     private static int healthMoveDecrease = 5;
@@ -92,7 +95,7 @@ public class Homework3_1 {
             }
         }
         scan.close();
-        System.out.println("You lost!!! The game is over.d");
+        System.out.println("You lost!!! The game is over");
     }
 
      public static void printRunDogMatrix(char[][] array){
