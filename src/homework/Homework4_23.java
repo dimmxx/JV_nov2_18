@@ -14,26 +14,18 @@ public class Homework4_23 {
         System.out.printf("\n%s%d%s%-15s%s%-20s%s%-7.2f%s", "|", 2, "|", "EUR", "|", "Euro", "|", 32.05, "|");
         System.out.printf("\n%s%d%s%-15s%s%-20s%s%-7.2f%s", "|", 3, "|", "GBP", "|", "British Pound", "|", 37.70, "|");
         System.out.println();
+        System.out.println();
+
 
         //Homework4_3
+        for(int i = 0; i < 61; i++) {
+            System.out.printf("\r%s %ta %<te %tb  %<tY; %s H:%tH M:%tM S:%tS", "Date:", new Date(), new Date(), "Time:", new Date(), new Date(), new Date());
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
         System.out.println();
-        System.out.printf("%s %ta %tb %<te, %<tY", "Date:", new Date());
-        System.out.println();
-
-        System.out.printf("%s %tB %<te, %<tY", "Due date:", new Date());
-
-     /*
-
-        Date: Wed 4 Jul 2001; Time: H:19 M:23 S:21
-    */
-
-
     }
-
-
-
-
-
-
-
 }
