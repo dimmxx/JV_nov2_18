@@ -9,11 +9,11 @@ public class Lesson4_05122018 {
 
     public static void main(String[] args) {
 
-        lottery(36, 6);
+       // lottery(36, 6);
 
         //arrString();
 
-        //format();
+        format();
 
     }
 
