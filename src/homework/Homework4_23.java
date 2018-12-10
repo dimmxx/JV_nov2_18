@@ -5,7 +5,7 @@ import java.util.Date;
 public class Homework4_23 {
 
     public static void main(String[] args) {
-        
+
         //Homework4_2
         System.out.println();
         System.out.printf("%s%s%s%-15s%s%-20s%s%-7s%s", "|", "#", "|", "currency", "|", "description", "|", "rate", "|");
