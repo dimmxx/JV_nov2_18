@@ -5,19 +5,13 @@ public class DemoLamp {
     public static void main(String[] args) {
 
 
-        lamp lamp1 = new lamp();
-
+        LampClass lamp1 = new LampClass();
 
         lamp1.lampOff();
         lamp1.lampInfo();
 
-
         lamp1.lampOn();
         lamp1.lampInfo();
-
-
-
-
     }
 
 

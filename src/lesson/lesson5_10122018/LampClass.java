@@ -1,6 +1,6 @@
 package lesson.lesson5_10122018;
 
-public class lamp {
+public class LampClass {
 
     int brightness = 0;
     boolean state = false;
@@ -8,26 +8,19 @@ public class lamp {
 
 
     void lampInfo(){
-        brightness == 100 ?
-
-
-        System.out.println("The lamp is " + (state ? "ON" : "OFF") + ". Brightness: " + brightness);
-
-
+        System.out.println("The lamp is " + (state ? "ON." : "OFF.") + " The brightness is " + brightness + ".");
     }
 
-    void lampOn(){
 
+    void lampOn(){
         brightness = 100;
+        state = true;
     }
 
 
     void lampOff(){
-
         brightness = 0;
+        state = false;
     }
-
-
-
 
 }
