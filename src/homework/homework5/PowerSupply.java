@@ -6,10 +6,10 @@ public class PowerSupply {
 
     private boolean state;
     private boolean mode; //false 5V, true 12V
-    String message;
-    String errorHV = "High voltage. ";
-    String errorLV = "Low voltage. ";
-    String okMessage = "The voltage is normal. ";
+    private String message;
+    private String errorHV = "High voltage. ";
+    private String errorLV = "Low voltage. ";
+    private String okMessage = "The voltage is normal. ";
 
     Scanner scan = new Scanner(System.in);
 
