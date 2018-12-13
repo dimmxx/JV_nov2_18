@@ -1,4 +1,4 @@
-package lesson.lesson6_12122018;
+package homework.homework6;
 
 public class ProductClass {
 

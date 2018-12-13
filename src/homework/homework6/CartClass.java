@@ -1,4 +1,4 @@
-package lesson.lesson6_12122018;
+package homework.homework6;
 
 import java.util.Scanner;
 
@@ -20,34 +20,20 @@ public class CartClass {
         }
     }
 
-    public void printCart() {
-        double sum = 0;
-        for (int i = 0; i < cart.length; i++) {
-            if (cart[i] != null) sum += cart[i].getPrice();
-            System.out.print((i + 1) + ". ");
-            System.out.println(cart[i] != null ? cart[i].getNameGood() + " "
-                    + cart[i].getPrice() : "");
-        }
-
-        if (sum == 0) System.out.println("The cart is empty");
-        System.out.println("--------------------------------------");
-        System.out.println("Total: " + sum);
-    }
-
-    public void printCartShort(){
+    public void printCart(){
         double sum = 0;
         int counter = 0;
         for(int i = 0; i < cart.length; i++){
             if(cart[i] != null){
                 sum += cart[i].getPrice();
                 counter++;
-                System.out.println( counter + " ." + cart[i].getNameGood() + " $" + cart[i].getPrice());
+                System.out.println( counter + ". " + cart[i].getNameGood() + " $" + cart[i].getPrice());
             }
         }
         if (sum == 0) System.out.println("The cart is empty");
         System.out.println("--------------------------------------");
-        System.out.println("Total: " + sum);
-        System.out.println(counter + "/" + cart.length + " (" + (cart.length - counter) + " free cells left).");
+        System.out.println("Total: $" + sum);
+        System.out.println(counter + "/" + cart.length + " (" + (cart.length - counter) + " free cells left)");
         System.out.println();
 
     }
@@ -59,7 +45,4 @@ public class CartClass {
             }
         }
     }
-
-
-
 }
