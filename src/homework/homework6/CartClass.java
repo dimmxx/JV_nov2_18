@@ -14,7 +14,7 @@ public class CartClass {
                 cart[i] = item;
                 break;
             }else if (i == cart.length - 1 & cart[i] != null){
-                System.out.println("Can not add item. The cart is full.");
+                System.out.println("Cannot add item. The cart is full.");
             }
         }
     }
@@ -26,7 +26,11 @@ public class CartClass {
             if(cart[i] != null){
                 sum += cart[i].getPrice();
                 counter++;
-                System.out.println( counter + ". " + cart[i].getNameGood() + " $" + cart[i].getPrice());
+                //System.out.println(counter + ". " + cart[i].getNameGood() + " $" + cart[i].getPrice());
+                System.out.printf("\n%s%2d%s%-15s%-20s.2f%s", "|", counter, "|", cart[i].getNameGood(), "|", cart[i].getPrice(), "|");
+
+                //"%s%d%s%-15s%s%-20s%s%-7.2f%s", "|", counter, "|", cart[i].getNameGood(), "|", cart[i].getPrice(), "|"
+                        System.out.print("\n-----------------------------------------");
             }
         }
         if (sum == 0) System.out.println("The cart is empty");
