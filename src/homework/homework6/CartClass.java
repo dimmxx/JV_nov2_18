@@ -8,7 +8,6 @@ public class CartClass {
     private ProductClass[] cart = new ProductClass[10];
     int counter = 0;
 
-
     public void putIntoCart(ProductClass item) {
         for(int i = 0; i < cart.length; i++) {
             if (cart[i] == null) {
