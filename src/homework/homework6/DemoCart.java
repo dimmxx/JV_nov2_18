@@ -14,13 +14,24 @@ public class DemoCart {
         cart1.putIntoCart((product2));
         cart1.putIntoCart((product3));
         cart1.putIntoCart((product3));
-
-
+        cart1.putIntoCart(product1);
+        cart1.putIntoCart((product2));
+        cart1.putIntoCart((product3));
+        cart1.putIntoCart((product3));
+        cart1.putIntoCart((product3));
+        cart1.putIntoCart((product3));
 
         cart1.printCart();
+        cart1.putIntoCart((product3));
 
-        cart1.removeFromCart("Bread");
+        cart1.removeFromCartAllItems("Bread");
+        cart1.removeFromCartAllItems("Water");
         cart1.printCart();
+
+        cart1.removeFromCartOneItem("Milk");
+        cart1.printCart();
+
+        cart1.removeFromCartAllItems("Bread");
 
 
     }
