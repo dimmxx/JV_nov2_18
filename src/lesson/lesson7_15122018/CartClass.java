@@ -25,9 +25,10 @@ public class CartClass {
             if(cart[i] != null){
                 sum += cart[i].getPrice();
                 counter++;
-                System.out.printf("\n%1$s %2$3d %3$s %4$-30s %5$s %6$15.2f %7$s", "|", counter, "|", cart[i].getNameGood(),
-                        "|", cart[i].getPrice(), "|");
-                System.out.print("\n----------------------------------------------------------");
+                cart[i].getInfo();
+//                //System.out.printf("\n%1$s %2$3d %3$s %4$-30s %5$s %6$15.2f %7$s", "|", counter, "|", cart[i].getInfo(),
+//                        "|", cart[i].getPrice(), "|");
+//                System.out.print("\n----------------------------------------------------------");
             }
         }
         if (sum == 0) System.out.println("The cart is empty");

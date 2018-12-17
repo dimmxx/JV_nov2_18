@@ -25,4 +25,11 @@ public class ProductClass {
     public void setPrice(int price) {
         this.price = price;
     }
+
+
+    public void getInfo(){
+        System.out.print("Name " + nameGood + "price " + price);
+    }
+
+
 }
