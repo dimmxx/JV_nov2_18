@@ -1,5 +1,8 @@
 package lesson.lesson9_19122018.p2;
 
+
+//anonymous class override
+
 public class DemoCar {
 
     public static void main(String[] args) {

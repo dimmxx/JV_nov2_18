@@ -15,11 +15,16 @@ public class Country {
 
     }
 
+    public String[] getArray(){
+        return array;
+    }
+
    public void printList(){
         for(int i = 0; i < array.length; i++){
             System.out.println(array[i]);
-
        }
+
+
 
    }
 
