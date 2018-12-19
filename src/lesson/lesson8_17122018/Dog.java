@@ -16,10 +16,6 @@ public class Dog extends Object {
         this.age = age;
     }
 
-
-
-
-
     @Override
     public boolean equals(Object object){
        if(!getClass().getName().equals(object.getClass().getName())) return false;

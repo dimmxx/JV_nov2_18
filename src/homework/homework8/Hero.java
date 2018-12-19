@@ -5,23 +5,62 @@ import java.util.Arrays;
 public class Hero {
 
     private String name;
-    private int health =100;
+    private int health = 1000;
 
     private int accuracy;
     private int intel;
     private int strength;
+    private int strike;
 
-    Item[] item = new Item[2];
+    private Item[] item = new Item[2];
 
-    private int strike = intel/3 + accuracy/2 + strength;
 
-    public Hero(String name, int health, int accuracy, int intel, int strength) {
+
+    public Hero(String name, int accuracy, int intel, int strength) {
         this.name = name;
-        this.health = health;
         this.accuracy = accuracy;
         this.intel = intel;
         this.strength = strength;
+        this.strike = intel/3 + accuracy/2 + strength;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public int getAccuracy() {
+        return accuracy;
+    }
+
+    public int getIntel() {
+        return intel;
+    }
+
+    public int getStrength() {
+        return strength;
+    }
+
+    public Item[] getItem() {
+        return item;
+    }
+
+    public int getStrike() {
+        return strike;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public void setItem(Item item, int n) {
+        this.item[n] = item;
+    }
+
+
 
     private int ultimate(){
         return strike * 2;
@@ -29,15 +68,9 @@ public class Hero {
 
     @Override
     public String toString() {
-        return "Hero{" +
-                "name='" + name + '\'' +
-                ", health=" + health +
-                ", accuracy=" + accuracy +
-                ", intel=" + intel +
-                ", strength=" + strength +
-                ", item=" + Arrays.toString(item) +
-                ", strike=" + strike +
-                '}';
+        return "\nHero:" + "\nname: " + name + "\nhealth: " + health + "\naccuracy: " + accuracy +
+                "\nintel: " + intel + "\nstrength: " + strength + "\nstrike: " + strike +
+                "\nItem: " + item[0].toString() + item[1].toString();
     }
 
 
