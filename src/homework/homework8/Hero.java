@@ -11,10 +11,9 @@ public class Hero {
     private int intel;
     private int strength;
     private int strike;
+    private boolean heroMode;
 
     private Item[] item = new Item[2];
-
-
 
     public Hero(String name, int accuracy, int intel, int strength) {
         this.name = name;
@@ -60,16 +59,17 @@ public class Hero {
         this.item[n] = item;
     }
 
-
-
     private int ultimate(){
         return strike * 2;
     }
 
+
+
+
     @Override
     public String toString() {
         return "\nHero:" + "\nname: " + name + "\nhealth: " + health + "\naccuracy: " + accuracy +
-                "\nintel: " + intel + "\nstrength: " + strength + "\nstrike: " + strike +
+                "\nintel: " + intel + "\nstrength: " + strength + "\nstrike: " + strike + "\nHeroMode" + heroMode +
                 "\nItem: " + item[0].toString() + item[1].toString();
     }
 

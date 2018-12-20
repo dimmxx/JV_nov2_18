@@ -12,7 +12,6 @@ public class Guitar {
 
     class Combo{
 
-        //private boolean mode;
 
         Combo(String mode){
             switch (mode){

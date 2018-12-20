@@ -22,8 +22,6 @@ public class DemoPatch {
         System.out.println(dog.printString());
         System.out.println(dog1.printString());
 
-
-
     }
 
 
