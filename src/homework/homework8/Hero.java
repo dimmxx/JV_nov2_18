@@ -59,7 +59,15 @@ public class Hero {
         this.item[n] = item;
     }
 
-    private int ultimate(){
+    public boolean isHeroMode() {
+        return heroMode;
+    }
+
+    public void setHeroMode(boolean heroMode) {
+        this.heroMode = heroMode;
+    }
+
+    protected int ultimate(){
         return strike * 2;
     }
 
@@ -69,8 +77,8 @@ public class Hero {
     @Override
     public String toString() {
         return "\nHero:" + "\nname: " + name + "\nhealth: " + health + "\naccuracy: " + accuracy +
-                "\nintel: " + intel + "\nstrength: " + strength + "\nstrike: " + strike + "\nHeroMode" + heroMode +
-                "\nItem: " + item[0].toString() + item[1].toString();
+                "\nintel: " + intel + "\nstrength: " + strength + "\nstrike: " + strike + "\nHeroMode: " +
+                heroMode + "\nItem: " + item[0].toString() + item[1].toString();
     }
 
 

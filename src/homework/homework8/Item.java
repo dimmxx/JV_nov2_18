@@ -12,6 +12,17 @@ public class Item {
         this.defence = defence;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getStrike() {
+        return strike;
+    }
+
+    public int getDefence() {
+        return defence;
+    }
 
     @Override
     public String toString() {
