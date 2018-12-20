@@ -1,16 +1,16 @@
-package lesson.lesson9_19122018.p1;
+package lesson.lesson9_19122018.p1_clone_with_constructor;
 
 public class DogClass implements Cloneable{
 
     private int age;
-    String name;
+    private String name;
 
-    OwnerClass owner;
+    private OwnerClass owner;
 
     public DogClass(DogClass dog) {
         this.age = dog.age;
         this.name = dog.name;
-        //owner = new OwnerClass(dog.owner);
+        owner = new OwnerClass(dog.owner);
     }
 
 
@@ -34,6 +34,10 @@ public class DogClass implements Cloneable{
         this.owner = owner;
     }
 
+    public void setOwnerName(String name){
+        owner.setName(name);
+    }
+
     @Override
     protected Object clone() throws CloneNotSupportedException {
         OwnerClass ownerTemp = (OwnerClass) owner.clone();
@@ -43,12 +47,10 @@ public class DogClass implements Cloneable{
 
     }
 
-
-
     public String printString() {
         return "DogClass{" +
                 "age=" + age +
-                ", name='" + name + '\'' + " " + owner.name +
+                ", name='" + name + '\'' + " " + owner.getName() +
                 '}' ;
     }
 }

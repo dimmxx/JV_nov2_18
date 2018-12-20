@@ -1,9 +1,9 @@
-package lesson.lesson9_19122018;
+package lesson.lesson9_19122018.p1_clone_with_override;
 
 public class DogClass implements Cloneable{
 
     private int age;
-    String name;
+    private String name;
 
     OwnerClass owner;
 
@@ -12,7 +12,6 @@ public class DogClass implements Cloneable{
         this.age = age;
         this.name = name;
     }
-
 
     public void setAge(int age) {
         this.age = age;
@@ -27,26 +26,18 @@ public class DogClass implements Cloneable{
     }
 
     @Override
-    protected Object clone() throws CloneNotSupportedException {
+    public Object clone() throws CloneNotSupportedException {
         OwnerClass ownerTemp = (OwnerClass) owner.clone();
         DogClass dogTemp = (DogClass) super.clone();
         dogTemp.setOwner(ownerTemp);
         return dogTemp;
-
-
-
     }
-
-
-
-
-
 
 
     public String printString() {
         return "DogClass{" +
                 "age=" + age +
-                ", name='" + name + '\'' + " " + owner.name +
+                ", name='" + name + '\'' + " " + owner.getName() +
                 '}' ;
     }
 }
