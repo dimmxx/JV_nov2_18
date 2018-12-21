@@ -10,13 +10,31 @@ public class DemoHero {
         Item sword = new Item("Sword", 20, 0);
         Item shield = new Item("Shield", 0, 30);
 
-        luna.setItem(sword, 0);
-        luna.setItem(shield, 1);
+        //luna.setItem(sword, 0);
+        //luna.setItem(shield, 1);
         zeus.setItem(sword, 0);
         zeus.setItem(shield, 1);
 
+        if (luna.getSlots()[0] == null) {
+            Item empty = new Item("empty", 0, 0);
+            luna.setItem(empty, 0);
+            luna.setItem(empty, 1);
+        }
+
+        if (zeus.getSlots()[0] == null) {
+            Item empty = new Item("empty", 0, 0);
+            zeus.setItem(empty, 0);
+            zeus.setItem(empty, 1);
+        }
+
         System.out.println(luna.toString());
         System.out.println(zeus.toString());
+
+        if (luna.getSlots() == null) {
+            Item empty = new Item("empty", 0, 0);
+            luna.setItem(empty, 0);
+            luna.setItem(empty, 1);
+        }
 
         int count = 0;
 
@@ -28,22 +46,21 @@ public class DemoHero {
                 luna.setHeroMode(true);
                 zeus.setHeroMode(true);
             }
-            int lunaHit = luna.isHeroMode() ? luna.ultimate() + luna.getItem()[0].getStrike() :
-                    luna.getStrike() + luna.getItem()[0].getStrike();
-            int zeusHit = zeus.isHeroMode() ? zeus.ultimate() + zeus.getItem()[0].getStrike() :
-                    zeus.getStrike() + zeus.getItem()[0].getStrike();
+            int lunaHit = luna.isHeroMode() ? luna.ultimate() + luna.getSlots()[0].getStrike() :
+                    luna.getStrike() + luna.getSlots()[0].getStrike();
+            int zeusHit = zeus.isHeroMode() ? zeus.ultimate() + zeus.getSlots()[0].getStrike() :
+                    zeus.getStrike() + zeus.getSlots()[0].getStrike();
 
             if (luna.getHealth() >= 0)
-                zeus.setHealth(zeus.getHealth() - lunaHit + zeus.getItem()[1].getDefence());
+                zeus.setHealth(zeus.getHealth() - lunaHit + zeus.getSlots()[1].getDefence());
             if (zeus.getHealth() >= 0)
-                luna.setHealth(luna.getHealth() - zeusHit + luna.getItem()[1].getDefence());
+                luna.setHealth(luna.getHealth() - zeusHit + luna.getSlots()[1].getDefence());
 
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
 
             System.out.println();
             System.out.println("---------------------------------------------");

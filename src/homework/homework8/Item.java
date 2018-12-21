@@ -16,6 +16,14 @@ public class Item {
         this.name = name;
     }
 
+    public void setStrike(int strike) {
+        this.strike = strike;
+    }
+
+    public void setDefence(int defence) {
+        this.defence = defence;
+    }
+
     public int getStrike() {
         return strike;
     }
