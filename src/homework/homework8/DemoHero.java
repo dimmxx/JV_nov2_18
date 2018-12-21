@@ -10,31 +10,13 @@ public class DemoHero {
         Item sword = new Item("Sword", 20, 0);
         Item shield = new Item("Shield", 0, 30);
 
-        //luna.setItem(sword, 0);
+        luna.setItem(sword, 0);
         //luna.setItem(shield, 1);
-        zeus.setItem(sword, 0);
+        //zeus.setItem(sword, 0);
         zeus.setItem(shield, 1);
-
-        if (luna.getSlots()[0] == null) {
-            Item empty = new Item("empty", 0, 0);
-            luna.setItem(empty, 0);
-            luna.setItem(empty, 1);
-        }
-
-        if (zeus.getSlots()[0] == null) {
-            Item empty = new Item("empty", 0, 0);
-            zeus.setItem(empty, 0);
-            zeus.setItem(empty, 1);
-        }
 
         System.out.println(luna.toString());
         System.out.println(zeus.toString());
-
-        if (luna.getSlots() == null) {
-            Item empty = new Item("empty", 0, 0);
-            luna.setItem(empty, 0);
-            luna.setItem(empty, 1);
-        }
 
         int count = 0;
 
@@ -51,9 +33,9 @@ public class DemoHero {
             int zeusHit = zeus.isHeroMode() ? zeus.ultimate() + zeus.getSlots()[0].getStrike() :
                     zeus.getStrike() + zeus.getSlots()[0].getStrike();
 
-            if (luna.getHealth() >= 0)
+            if (luna.getHealth() > 0)
                 zeus.setHealth(zeus.getHealth() - lunaHit + zeus.getSlots()[1].getDefence());
-            if (zeus.getHealth() >= 0)
+            if (zeus.getHealth() > 0)
                 luna.setHealth(luna.getHealth() - zeusHit + luna.getSlots()[1].getDefence());
 
             try {
@@ -63,8 +45,9 @@ public class DemoHero {
             }
 
             System.out.println();
+            System.out.println();
+            System.out.println("Round # " + count + ":");
             System.out.println("---------------------------------------------");
-            System.out.println("Round # " + count);
             System.out.println(luna.toString());
             System.out.println(zeus.toString());
         }

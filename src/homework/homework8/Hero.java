@@ -19,6 +19,8 @@ public class Hero {
         this.intel = intel;
         this.strength = strength;
         this.strike = intel/3 + accuracy/2 + strength;
+        slots[0] = new Item();
+        slots[1] = new Item();
     }
 
     public String getName() {
@@ -27,18 +29,6 @@ public class Hero {
 
     public int getHealth() {
         return health;
-    }
-
-    public int getAccuracy() {
-        return accuracy;
-    }
-
-    public int getIntel() {
-        return intel;
-    }
-
-    public int getStrength() {
-        return strength;
     }
 
     public Item[] getSlots() {
@@ -71,10 +61,9 @@ public class Hero {
 
     @Override
     public String toString() {
-
         return "\nHero:" + "\nname: " + name + "\nhealth: " + health + "\naccuracy: " + accuracy +
                 "\nintel: " + intel + "\nstrength: " + strength + "\nstrike: " + strike + "\nHeroMode: " +
-                heroMode + "\nItem: " + slots[0].toString() + slots[1].toString();
+                heroMode + "\nSlot 1: " + slots[0].toString() + "\nSlot 2: " + slots[1].toString();
     }
 
 
