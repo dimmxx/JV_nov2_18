@@ -8,7 +8,7 @@ public class DemoShape {
 
         Scanner scan = new Scanner(System.in);
 
-        ShapeClass[] array = new ShapeClass[2];
+        ShapeClass[] array = new ShapeClass[3];
 
         boolean go = true;
         while(go) {
@@ -29,10 +29,11 @@ public class DemoShape {
                             array[i] = new Square(Color.getColor());
                             break;
                         case 3:
-  //                          array[i] = new Triangle(Color.getColor(), inputPerimeter());
+                            array[i] = new Triangle(Color.getColor());
                     }
                 } else {
                     System.out.println("Error! Select 1 - 3 or 0 to exit");
+                    i--;
                     scan.next();
                 }
             }
@@ -44,6 +45,4 @@ public class DemoShape {
             if(array[i] != null) array[i].printFigure();
         }
     }
-
-
 }

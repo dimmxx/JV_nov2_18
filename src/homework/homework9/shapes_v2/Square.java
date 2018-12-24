@@ -16,6 +16,7 @@ public class Square extends ShapeClass {
         System.out.println();
         System.out.println("Shape name: " + name);
         super.printFigure();
+        System.out.println("Square side: " + side);
         System.out.println("Square area: " + area);
         System.out.println("Square perimeter: " + perimeter);
     }

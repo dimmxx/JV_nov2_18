@@ -16,6 +16,7 @@ public class Circle extends ShapeClass {
         System.out.println();
         System.out.println("Shape name: " + name);
         super.printFigure();
+        System.out.println("Circle radius: " + radius);
         System.out.println("Circle area: " + area);
         System.out.println("Circle сircumference: " + circumference);
     }
