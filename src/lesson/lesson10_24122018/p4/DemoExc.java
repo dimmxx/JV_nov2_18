@@ -1,4 +1,4 @@
-package lesson.lesson10_24122018.p1_exception.p4;
+package lesson.lesson10_24122018.p4;
 
 public class DemoExc {
 

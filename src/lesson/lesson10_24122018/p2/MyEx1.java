@@ -1,4 +1,4 @@
-package lesson.lesson10_24122018.p1_exception.p2;
+package lesson.lesson10_24122018.p2;
 
 public class MyEx1 {
 

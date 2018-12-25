@@ -1,4 +1,4 @@
-package lesson.lesson10_24122018.p1_exception.p3_own_exception;
+package lesson.lesson10_24122018.p3_own_exception;
 
 public class DemoExep {
 

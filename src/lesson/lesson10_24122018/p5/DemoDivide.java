@@ -1,4 +1,4 @@
-package lesson.lesson10_24122018.p1_exception.p5;
+package lesson.lesson10_24122018.p5;
 
 public class DemoDivide {
 
@@ -6,9 +6,13 @@ public class DemoDivide {
 
         Divide divide = new Divide();
 
+       // try {
         try {
             System.out.println(divide.divide(1, 0));
-        } catch (MateAcademyEx e){
+       // } catch (MateAcademyEx mateAcademyEx) {
+            //mateAcademyEx.printStackTrace();
+        //}
+          } catch (MateAcademyEx e){
             System.out.println(e.getMessage());
         }
 

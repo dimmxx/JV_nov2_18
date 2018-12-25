@@ -1,4 +1,4 @@
-package lesson.lesson10_24122018.p1_exception.p6_file;
+package lesson.lesson10_24122018.p6_file;
 
 import java.io.File;
 
