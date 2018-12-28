@@ -15,12 +15,14 @@ import javax.swing.JTextField;
 
 public class MyWindow extends JFrame {
 	JLabel result=new JLabel(new ImageIcon("pic.jpg"));
+
 	JTextField login=new JTextField();
 	JButton send = new JButton("OK");
 	
 	JButton button1 = new JButton("To Panel#2");
 	JButton button2 = new JButton("To Panel#1");
 	JPanel panel;
+
 	public MyWindow() {
 		super("My first Frame");
 		setSize(300, 300);

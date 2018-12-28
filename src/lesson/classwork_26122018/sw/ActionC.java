@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 public class ActionC extends JFrame {
 	JLabel label = new JLabel("SomeText");
 	JButton button = new JButton("Press me");
+
 	ActionC(){
 		setSize(300,300);
 		setVisible(true);
@@ -28,6 +29,9 @@ public class ActionC extends JFrame {
 	}
 	
 	private void ifButtonPressed() {
-		label.setText("Button was pressed");
+		if (label.getText().equals("Press me")) {
+			label.setText("Button was pressed");
+		} else label.setText("Press me");
+
 	}
 }
