@@ -9,5 +9,31 @@ import java.io.IOException;
 
 public class ResizeImage extends JFrame{
 
+    public static void main(String[] args) throws IOException {
+        new ResizeImage();
+    }
 
+        public ResizeImage() throws IOException {
+
+        JLabel label = new JLabel();
+        JLabel label1 = new JLabel();
+
+
+        //ImageIcon icon = new ImageIcon(new ImageIcon("cells.png").getImage().getScaledInstance(700, 700, Image.SCALE_DEFAULT));
+        ImageIcon icon1 = new ImageIcon(new ImageIcon("run.png").getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT));
+
+
+
+        JFrame frame = new JFrame();
+
+        frame.setSize(700, 700);
+
+        //label.setIcon(icon);
+        label1.setIcon(icon1);
+
+        //frame.add(label);
+        frame.add(label1);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
 }
