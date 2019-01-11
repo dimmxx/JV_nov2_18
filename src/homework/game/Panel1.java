@@ -17,6 +17,8 @@ public class Panel1 extends JPanel {
     private int moveGround = 0;
     private Image imageGround = null;
 
+    private int explosionImageIndex = 0;
+
     private boolean mousePressed = false;
 
     protected static Plane plane = new Plane();
@@ -30,7 +32,6 @@ public class Panel1 extends JPanel {
     private PuffSmall puffSmall1 = new PuffSmall(rndHeight(), rndSpeed());
     //private PuffLarge puffLarge2 = new PuffLarge(rndHeight(), rndSpeed());
     private PuffSmall puffSmall2 = new PuffSmall(rndHeight(), rndSpeed());
-
 
     private boolean isCollision = false;
 
@@ -46,7 +47,7 @@ public class Panel1 extends JPanel {
         });
 
         try {
-            imageGround = ImageIO.read(new File("res/plane/groundGrass.png"));
+            imageGround = ImageIO.read(new File("src/res/plane/groundGrass.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -54,14 +55,12 @@ public class Panel1 extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-
-                    repaint();
+                repaint();
 
             }
         });
         timer.start();
     }
-
 
 
     public void paintComponent(Graphics g) {
@@ -91,8 +90,7 @@ public class Panel1 extends JPanel {
                 } else plane.changePlaneHeight(-30);
                 mousePressed = false;
             }
-
-            if(plane.getPlaneHeight() > 615) plane.setHealth(-100);
+            if (plane.getPlaneHeight() > 615) plane.setHealth(-100);
 
             puffLarge1.setPosXProgress(puffLarge1.getPosX() - puffLarge1.getMove());
             g.drawImage(puffLarge1.getImage(), puffLarge1.getPosXProgress(), puffLarge1.getPosY(), null);
@@ -102,7 +100,6 @@ public class Panel1 extends JPanel {
             isCollision = checkCollision(puffLarge1);
             if (isCollision) {
                 plane.setHealth(plane.getHealth() - 1);
-                isCollision = false;
             }
             if (puffLarge1.getPosXProgress() < -500) {
                 puffLarge1.reInit();
@@ -116,25 +113,11 @@ public class Panel1 extends JPanel {
             isCollision = checkCollision(puffSmall1);
             if (isCollision) {
                 plane.setHealth(plane.getHealth() - 1);
-                isCollision = false;
             }
             if (puffSmall1.getPosXProgress() < -300) {
                 puffSmall1.reInit();
             }
 
-//        puffLarge2.setPosXProgress(puffLarge2.getPosX() - puffLarge2.getMove());
-//        g.drawImage(puffLarge2.getImage(), puffLarge2.getPosXProgress(), puffLarge2.getPosY(), null);
-//        puffLarge2.setPuffHitBoxX(puffLarge2.getPosXProgress());
-//        g.setColor(new Color(255, 100, 30));
-//        g.drawRect(puffLarge2.getPuffHitBox().x, puffLarge2.getPuffHitBox().y, puffLarge2.getPuffHitBox().width, puffLarge2.getPuffHitBox().height);
-//        isCollision = checkCollision(puffLarge2);
-//        if (isCollision) {
-//            plane.setHealth(plane.getHealth() - 1);
-//            isCollision = false;
-//        }
-//        if (puffLarge2.getPosXProgress() < -500) {
-//            puffLarge2.reInit();
-//        }
 
             puffSmall2.setPosXProgress(puffSmall2.getPosX() - puffSmall2.getMove());
             g.drawImage(puffSmall2.getImage(), puffSmall2.getPosXProgress(), puffSmall2.getPosY(), null);
@@ -144,33 +127,39 @@ public class Panel1 extends JPanel {
             isCollision = checkCollision(puffSmall2);
             if (isCollision) {
                 plane.setHealth(plane.getHealth() - 1);
-                isCollision = false;
             }
             if (puffSmall2.getPosXProgress() < -300) {
                 puffSmall2.reInit();
             }
 
+            if (checkCollision(puffLarge1) || checkCollision(puffSmall1) || checkCollision(puffSmall2)) {
+                g.drawImage(plane.getExplosionImage(explosionImageIndex), plane.getPLANE_DISTANCE() - 25, plane.getPlaneHeight() - 35, null);
+                explosionImageIndex++;
+                if (explosionImageIndex == 9) explosionImageIndex = 0;
+            }
+
+            isCollision = false;
 
             g.setColor(new Color(0, 255, 255));
-            g.drawString("Health: " + plane.getHealth(), 700, 20);
-            g.drawString("Score: " + plane.getScore(), 700, 40);
+            g.drawString("Health: " + plane.getHealth(), 650, 20);
+            g.drawString("Score: " + plane.getScore() + "/1000", 650, 40);
+            
 
-            g.setColor(new Color(255, 100, 30));
-            g.drawRect(10, 610, 400, 1);
+        } else {
+            g.setColor(new Color(255, 255, 0));
+            g.setFont(new Font("Times New Roman", Font.BOLD, 40));
+            g.drawString("You lost!!! Game is over.", 200, 310);
+        }
 
-
-
-        } else if (plane.getScore() >= 1000){
+        if (plane.getScore() >= 1000 & plane.getHealth() > 0) {
+            g.setColor(new Color(77, 86, 255));
+            g.fillRect(0, 0, panelWidth, panelHeight);
             g.setColor(new Color(255, 255, 0));
             g.setFont(new Font("Times New Roman", Font.BOLD, 40));
             g.drawString("You won!!! Game is over.", 200, 310);
-
-        } else if (plane.getHealth() < 0){
-            g.setColor(new Color(255, 255, 0));
-            g.setFont(new Font("Times New Roman", Font.BOLD, 40));
-            g.drawString("You lost!!! Game is over.", 200 , 310);
-
         }
+
+
     }
 
     private boolean checkCollision(Puff puff) {

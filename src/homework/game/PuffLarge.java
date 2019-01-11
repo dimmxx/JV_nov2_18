@@ -27,7 +27,7 @@ public class PuffLarge extends Puff{
         puffHitBox = new Rectangle(posX + 130, posY + 80, 140, 90);
 
         try {
-            image = ImageIO.read(new File("res/plane/cloud3.png"));
+            image = ImageIO.read(new File("src/res/plane/cloud3.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }

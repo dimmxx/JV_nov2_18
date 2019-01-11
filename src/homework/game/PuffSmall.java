@@ -35,7 +35,7 @@ public class PuffSmall extends Puff {
         puffHitBox = new Rectangle(posX, posY + 60, 155, 52);
 
         try {
-            image = ImageIO.read(new File("res/plane/cloud2.png"));
+            image = ImageIO.read(new File("src/res/plane/cloud2.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }

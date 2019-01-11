@@ -10,7 +10,7 @@ import static homework.game.Panel1.plane;
 public class Coin {
 
     private int bonus = 100;
-    Image[] image = new Image[5];
+    Image[] image = new Image[6];
 
     private int coinPosX = GameFrame.FRAME_WIDTH + 50;
     private int coinPosY = rndCoinHeight();
@@ -23,9 +23,9 @@ public class Coin {
 
 
     public Coin(){
-        for(int i = 0; i < 5; i++) {
+        for(int i = 0; i < 6; i++) {
             try {
-                image[i] = ImageIO.read(new File("res/plane/coin/"+i+".png"));
+                image[i] = ImageIO.read(new File("src/res/plane/coin/"+i+".png"));
             } catch (
                     IOException e) {
                 e.printStackTrace();
@@ -40,7 +40,7 @@ public class Coin {
         coinHitBox.x = coinPosX;
         g.drawImage(image[coinRotate], coinPosX, coinPosY, null);
         coinRotate++;
-        if(coinRotate == 5) coinRotate = 0;
+        if(coinRotate == 6) coinRotate = 0;
         if(coinPosX < 0 - 50) coinReInit();
         if(CheckCollision.checkCollision(this.coinHitBox)){
             coinReInit();

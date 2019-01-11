@@ -15,20 +15,32 @@ public class Plane {
     private int planeHeight = 50;
     private java.awt.Rectangle planeHitBox;
     private Image image = null;
+    private Image[] explosionImage = new Image[9];
 
 
-    public Plane(){
+    public Plane() {
 
         planeHitBox = new java.awt.Rectangle(PLANE_DISTANCE, planeHeight, 70, 50);
 
         try {
-            image = ImageIO.read(new File("res/plane/plane.png"));
+            image = ImageIO.read(new File("src/res/plane/plane.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        image = image.getScaledInstance(70,50, Image.SCALE_SMOOTH);
-    }
+        image = image.getScaledInstance(70, 50, Image.SCALE_SMOOTH);
 
+
+        for (int i = 0; i < explosionImage.length; i++) {
+            try {
+                explosionImage[i] = ImageIO.read(new File("src/res/plane/explosion/"+i+".png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            explosionImage[i] = explosionImage[i].getScaledInstance(130, 130, Image.SCALE_SMOOTH);
+        }
+
+
+    }
 
 
     public int getHealth() {
@@ -77,4 +89,7 @@ public class Plane {
     }
 
 
+    public Image getExplosionImage(int index) {
+        return explosionImage[index];
+    }
 }
