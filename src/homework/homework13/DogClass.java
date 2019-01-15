@@ -15,10 +15,7 @@ public class DogClass {
 
     @Override
     public String toString() {
-        return "DogClass{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", color=" + color +
-                '}';
+        return "DogClass {" + "name = " + name  + ", age = "
+                + age + ", color = " + color + "}";
     }
 }
