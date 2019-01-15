@@ -14,7 +14,7 @@ public class DimaCollectionArrayList {
     }
 
 
-    public void add(DogClass item){
+    public void ensureCapacity(){
         if(counter == array.length - 1){
             DogClass temp[] = new DogClass[(array.length*3/2) + 1];
             for(int i = 0; i < array.length; i++){
@@ -23,10 +23,20 @@ public class DimaCollectionArrayList {
             array = temp;
             temp = null;
         }
+    }
+
+    public void add(DogClass item){
+        ensureCapacity();
         array[counter] = item;
         counter++;
+    }
+
+    public void add(int index, DogClass){
 
     }
+
+
+
 
     public DogClass get(int pos){
         return array[pos];
