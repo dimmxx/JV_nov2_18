@@ -1,0 +1,27 @@
+sudo mysql -u root -p
+udo mysql -u root
+quit
+
+SHOW DATABASES;
+USE ... ;
+SHOW TABLES;
+DESCRIBE ..table-name....;
+
+CREATE DATABASE mateacademy;
+
+CREATE TABLE user (id int, name varchar(10));
+INSERT INTO user VALUES (1, "Dima");
+INSERT INTO stidents VALUES (3, "Linda", "Rome", 32), (4, "Kate", "Los_Angeles", 45);
+
+DELETE FROM stidents;
+DROP TABLE stidents;
+
+UPDATE student SET  age = 18 WHERE id =5;
+SELECT * FROM student WHERE age = 15 AND address = 'Moscow';
+
+SELECT * FROM student WHERE name LIKE "_asha";
+SELECT * FROM student WHERE age > 20 AND age < 45;
+
+SELECT * FROM student WHERE age BETWEEN 30 AND 45;
+SELECT * FROM student WHERE age IN (18, 17, 19);
+SELECT * FROM student ORDER BY age DESC;
