@@ -5,8 +5,7 @@ import java.util.function.UnaryOperator;
 
 public class temp implements List<Object> {
 
-
-
+    //ArrayList
 
 
     @Override

@@ -3,6 +3,7 @@ package homework.homework13;
 //implementation of ArrayList
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class DimaCollectionArrayList {
 
@@ -39,19 +40,27 @@ public class DimaCollectionArrayList {
         array[index] = dog;
     }
 
-
-
-
     public DogClass get(int pos){
         return array[pos];
     }
-
-
 
     public void printOut(){
         for(int i = 0; i <= counter; i++){
             System.out.println(array[i].toString());
         }
+    }
+
+    public void sort(DogClassComparator comparator){
+
+        for(int i = 0; i <= counter; i++){
+
+
+        }
+
+        comparator.compare(array[0], array[1]);
+
+
+
     }
 
 

@@ -42,6 +42,10 @@ public class DemoDimaCollection {
 //        }
 
         dArrayList.printOut();
+        System.out.println("---------------------------------");
+
+        dArrayList.sort(new DogClassComparator());
+        dArrayList.printOut();
 
 
 

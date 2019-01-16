@@ -1,7 +1,5 @@
-package lesson.lesson13_14012019.p1.p2;
+package lesson.lesson13_14012019_comparator_map.p2;
 
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 

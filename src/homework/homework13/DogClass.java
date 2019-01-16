@@ -13,6 +13,14 @@ public class DogClass {
         this.color = color;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
     @Override
     public String toString() {
         return "DogClass {" + "name = " + name  + ", age = "

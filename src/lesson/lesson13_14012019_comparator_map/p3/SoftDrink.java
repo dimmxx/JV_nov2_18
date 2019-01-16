@@ -1,6 +1,4 @@
-package lesson.lesson13_14012019.p1.p3;
-
-import java.util.Objects;
+package lesson.lesson13_14012019_comparator_map.p3;
 
 public class SoftDrink {
 

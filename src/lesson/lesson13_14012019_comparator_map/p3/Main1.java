@@ -1,4 +1,4 @@
-package lesson.lesson13_14012019.p1.p3;
+package lesson.lesson13_14012019_comparator_map.p3;
 
 import java.util.*;
 
