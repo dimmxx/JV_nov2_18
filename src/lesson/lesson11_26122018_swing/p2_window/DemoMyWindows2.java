@@ -1,4 +1,4 @@
-//package lesson.lesson11_26122018.p2_window;
+//package lesson.lesson11_26122018_swing.p2_window;
 //
 //public class DemoMyWindows2 {
 //

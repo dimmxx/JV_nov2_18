@@ -1,4 +1,4 @@
-package lesson.lesson11_26122018.p3;
+package lesson.lesson11_26122018_swing.p3;
 
 public class Demo {
 

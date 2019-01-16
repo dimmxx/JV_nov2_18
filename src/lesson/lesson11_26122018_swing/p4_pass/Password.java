@@ -1,4 +1,4 @@
-package lesson.lesson11_26122018.p4_pass;
+package lesson.lesson11_26122018_swing.p4_pass;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

@@ -1,9 +1,6 @@
-package lesson.lesson12_12012019.p4;
-
-import lesson.lesson8_17122018.Dog;
+package lesson.lesson12_12012019_collections.p4;
 
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.TreeSet;
 

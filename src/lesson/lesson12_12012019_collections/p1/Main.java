@@ -1,4 +1,4 @@
-package lesson.lesson12_12012019.p1;
+package lesson.lesson12_12012019_collections.p1;
 
 import lesson.lesson8_17122018.Dog;
 

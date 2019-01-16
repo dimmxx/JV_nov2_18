@@ -1,6 +1,4 @@
-package lesson.lesson12_12012019.p5;
-
-import lesson.lesson8_17122018.Dog;
+package lesson.lesson12_12012019_collections.p5;
 
 import java.util.*;
 
