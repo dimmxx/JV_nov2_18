@@ -3,19 +3,18 @@ package homework.homework13;
 //implementation of ArrayList
 
 import java.util.*;
-import java.util.function.UnaryOperator;
 
 public class DimaCollectionArrayList  {
 
     private DogClass[] array;
-    private int counter = 0;
+    private int currentSize = 0;
 
     public DimaCollectionArrayList(){
         array = new DogClass[3];
     }
 
-    public int getCounter() {
-        return counter;
+    public int getCurrentSize() {
+        return currentSize;
     }
 
     public int size(){
@@ -23,7 +22,7 @@ public class DimaCollectionArrayList  {
     }
 
     public void ensureCapacity(){
-        if(counter == array.length){
+        if(currentSize == array.length){
             DogClass temp[] = new DogClass[(array.length*3/2) + 1];
             for(int i = 0; i < array.length; i++){
                 temp[i] = array[i];
@@ -34,29 +33,29 @@ public class DimaCollectionArrayList  {
     }
 
     public void remove(int index){
-        for (int i = index; i < counter - 1; i++){
+        for (int i = index; i < currentSize - 1; i++){
             array[i] = array[i + 1];
         }
-        array[counter - 1] = null;
-        counter--;
+        array[currentSize - 1] = null;
+        currentSize--;
     }
 
     public void add(DogClass item){
         ensureCapacity();
-        array[counter] = item;
-        counter++;
+        array[currentSize] = item;
+        currentSize++;
     }
 
     public void add(int index, DogClass dog){
         ensureCapacity();
-        if(index > counter){
-            index = counter;
+        if(index > currentSize){
+            index = currentSize;
         }
-        for(int i = counter - 1; i >= index; i--){
+        for(int i = currentSize - 1; i >= index; i--){
             array[i + 1] = array[i];
         }
         array[index] = dog;
-        counter++;
+        currentSize++;
     }
 
     public DogClass get(int pos){
@@ -65,7 +64,7 @@ public class DimaCollectionArrayList  {
 
 
     public void printOut(){
-        for(int i = 0; i < counter; i++){
+        for(int i = 0; i < currentSize; i++){
             System.out.println("Cell# " + i + " " + array[i].toString());
         }
     }
@@ -76,8 +75,8 @@ public class DimaCollectionArrayList  {
     }
 
     public void sort(Comparator comparator){
-        for(int i = 0; i < counter - 1; i++){
-            for (int k = 0; k < counter - 1 - i ; k++){
+        for(int i = 0; i < currentSize - 1; i++){
+            for (int k = 0; k < currentSize - 1 - i ; k++){
                 if(comparator.compare(array[k], array[k + 1]) == 1){
                     DogClass temp = array[k];
                     array[k] = array[k + 1];
@@ -97,7 +96,7 @@ public class DimaCollectionArrayList  {
             private int currentIndex = 0;
             @Override
             public boolean hasNext() {
-                return currentIndex < counter && array[currentIndex] != null;
+                return currentIndex < currentSize && array[currentIndex] != null;
             }
             @Override
             public DogClass next() {
