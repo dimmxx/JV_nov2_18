@@ -32,17 +32,11 @@ public class Main {
 
         System.out.println(al);
 
-
-//        for(Dog d: al){
-//            d.setAge(55555);
-//        }
-//
-
         // удалить итератором дог возрастом 5
         Iterator<Dog> dogIterator = al.iterator();
         while (dogIterator.hasNext()){
-            Dog temp = dogIterator.next();
-            if(temp.getAge() == 5) dogIterator.remove();
+            //Dog temp = dogIterator.next();
+            if(dogIterator.next().getAge() == 5) dogIterator.remove();
         }
         System.out.println(al);
     }

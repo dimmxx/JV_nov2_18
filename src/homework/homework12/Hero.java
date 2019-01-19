@@ -7,7 +7,6 @@ public class Hero <Hero>{
     private int accuracy;
     private int intel;
 
-
     public Hero(String name, int health, int accuracy, int intel){
         this.name = name;
         this.health = health;
@@ -18,6 +17,10 @@ public class Hero <Hero>{
 
     public int getIntel() {
         return intel;
+    }
+
+    public String getName() {
+        return name;
     }
 
     @Override
