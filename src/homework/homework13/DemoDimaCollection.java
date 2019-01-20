@@ -12,7 +12,9 @@ public class DemoDimaCollection {
 
     public static void main(String[] args) {
 
-        DimaCollectionArrayList dArrayList = new DimaCollectionArrayList();
+//      DimaCollectionArrayList dArrayList = new DimaCollectionArrayList();
+
+        DimaCollectionLinkedList dLinkedList = new DimaCollectionLinkedList();
 
         DogClass dog1 = new DogClass("Poppy", 15, "black");
         DogClass dog2 = new DogClass("Emma", 12, "brown");
@@ -26,17 +28,17 @@ public class DemoDimaCollection {
 //            dArrayList.add(makeDog(name[(int) (Math.random()*name.length)], age[(int)(Math.random()*age.length)], color[(int)(Math.random()*color.length)]));
 //        }
 
-        dArrayList.add(dog1);
-        dArrayList.add(dog2);
-        dArrayList.add(dog3);
-
-        dArrayList.printOut();
-        System.out.println("----------------------------------------------");
-
-        dArrayList.sort(new DogClassComparator());
-
-        dArrayList.printOut();
-        System.out.println("----------------------------------------------");
+//        dArrayList.add(dog1);
+//        dArrayList.add(dog2);
+//        dArrayList.add(dog3);
+//
+//        dArrayList.printOut();
+//        System.out.println("----------------------------------------------");
+//
+//        dArrayList.sort(new DogClassComparator());
+//
+//        dArrayList.printOut();
+//        System.out.println("----------------------------------------------");
 
 //        dArrayList.remove(0);
 //        dArrayList.printOut();
@@ -47,12 +49,29 @@ public class DemoDimaCollection {
 //        System.out.println("----------------------------------------------");
 
 
-        Iterator<DogClass> it = dArrayList.iterator();
-        while (it.hasNext()){
-            System.out.println(it.next().getAge());
-        }
+//        Iterator<DogClass> it = dArrayList.iterator();
+//        while (it.hasNext()){
+//            System.out.println(it.next().getAge());
+//        }
+
+
+        System.out.println(dLinkedList.getCurrentSize());
+        dLinkedList.add(dog1);
+        dLinkedList.add(dog2);
+        dLinkedList.add(dog3);
+        System.out.println(dLinkedList.getCurrentSize());
+
+        System.out.println(dLinkedList.printOut());
+
+
+
+
 
     }
+
+
+
+
 
 
 
@@ -62,9 +81,4 @@ public class DemoDimaCollection {
     private static DogClass makeDog(String name, int age, String color){
         return new DogClass(name, age, color);
     }
-
-
-
-
-
 }
