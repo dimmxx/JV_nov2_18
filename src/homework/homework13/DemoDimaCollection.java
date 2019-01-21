@@ -63,6 +63,10 @@ public class DemoDimaCollection {
 
         System.out.println(dLinkedList.printOut());
 
+        dLinkedList.add(1, dog4);
+        System.out.println("------------------------------");
+        System.out.println(dLinkedList.printOut());
+
 
 
 
