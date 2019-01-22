@@ -69,21 +69,16 @@ public class DemoDimaCollection {
         System.out.println(dLinkedList.printOut());
 
 
+        System.out.println("------------------------------");
+        System.out.println(dLinkedList.remove(0));
 
+        System.out.println(dLinkedList.printOut());
 
 
     }
 
 
-
-
-
-
-
-
-
-
-    private static DogClass makeDog(String name, int age, String color){
+    private static DogClass makeDog(String name, int age, String color) {
         return new DogClass(name, age, color);
     }
 }

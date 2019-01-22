@@ -16,7 +16,18 @@ public class DimaCollectionLinkedList implements List {
         public Node(DogClass element){
             this.element = element;
         }
+
+
+
+        public void toString(){
+
+        }
+    
+
     }
+
+
+
 
     private Node firstNode;
     private Node lastNode;
@@ -79,43 +90,23 @@ public class DimaCollectionLinkedList implements List {
         }
     }
 
-
     @Override
     public Object remove(int index) {
-
-//        Node current;
-//        if(index >= currentSize){
-//          current = lastNode;
-//          node.previousN = current;
-//          current.nextN = node;
-//          lastNode = node;
-//          currentSize++;
-//       } else if(index == 0){
-//            firstNode.previousN = node;
-//            node.nextN = firstNode;
-//            node.previousN = null;
-//            firstNode = node;
-//            currentSize++;
-//        }else {
-//            current = firstNode;
-//            for (int i = 0; i < index; i++) {
-//                current = current.nextN;
-//            }
-//            node.previousN = current.previousN;
-//            node.nextN = current;
-//            node.previousN.nextN = node;
-//            current.previousN = node;
-//            currentSize++;
-//        }
-
-
-
-
-
-
-
-
-        return null;
+        Node current = firstNode;
+        if(index == 0){
+            firstNode = firstNode.nextN;
+            firstNode.previousN = null;
+            currentSize--;
+            return current;
+        }else {
+            for (int i = 0; i < index; i++) {
+                current = current.nextN;
+            }
+            current.previousN = current.nextN;
+            current.nextN = current.previousN;
+            currentSize--;
+            return current;
+        }
     }
 
 
