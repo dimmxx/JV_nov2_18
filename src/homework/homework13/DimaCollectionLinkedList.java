@@ -26,6 +26,11 @@ public class DimaCollectionLinkedList implements List {
         return currentSize;
     }
 
+    @Override
+    public boolean add(Object o) {
+        return false;
+    }
+
     public boolean add(DogClass element) {
         if (firstNode == null) {
             Node node = new Node(element);
@@ -45,20 +50,75 @@ public class DimaCollectionLinkedList implements List {
         return false;
     }
 
-
     @Override
     public void add(int index, Object element) {
         Node node = new Node((DogClass) element);
-        Node current = firstNode;
-        for(int i = 0; i < index; i++){
-            current = current.nextN;
+        Node current;
+        if(index >= currentSize){
+          current = lastNode;
+          node.previousN = current;
+          current.nextN = node;
+          lastNode = node;
+          currentSize++;
+       } else if(index == 0){
+            firstNode.previousN = node;
+            node.nextN = firstNode;
+            node.previousN = null;
+            firstNode = node;
+            currentSize++;
+        }else {
+            current = firstNode;
+            for (int i = 0; i < index; i++) {
+                current = current.nextN;
+            }
+            node.previousN = current.previousN;
+            node.nextN = current;
+            node.previousN.nextN = node;
+            current.previousN = node;
+            currentSize++;
         }
-        node.nextN = current;
-        current.previousN = node;
-        node.previousN = current.previousN;
-        node.previousN.nextN = node;
-        //currentSize++;
     }
+
+
+    @Override
+    public Object remove(int index) {
+
+//        Node current;
+//        if(index >= currentSize){
+//          current = lastNode;
+//          node.previousN = current;
+//          current.nextN = node;
+//          lastNode = node;
+//          currentSize++;
+//       } else if(index == 0){
+//            firstNode.previousN = node;
+//            node.nextN = firstNode;
+//            node.previousN = null;
+//            firstNode = node;
+//            currentSize++;
+//        }else {
+//            current = firstNode;
+//            for (int i = 0; i < index; i++) {
+//                current = current.nextN;
+//            }
+//            node.previousN = current.previousN;
+//            node.nextN = current;
+//            node.previousN.nextN = node;
+//            current.previousN = node;
+//            currentSize++;
+//        }
+
+
+
+
+
+
+
+
+        return null;
+    }
+
+
 
 
 
@@ -66,27 +126,24 @@ public class DimaCollectionLinkedList implements List {
         StringBuilder sb = new StringBuilder();
         Node current = firstNode;
         for(int i = 0; i < currentSize; i++){
-            sb.append(current.element.toString());
+            sb.append(current.element);
+            sb.append(" Node#" + i);
             current = current.nextN;
-
         }
-
         return sb;
-
     }
 
+     @Override
+    public int size() {
+        return currentSize;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
+    @Override
+    public boolean isEmpty() {
+        if(currentSize == 0)
+            return true;
+        else return false;
+    }
 
 //    public Iterator iterator(){
 //        return new Iterator() {
@@ -103,15 +160,7 @@ public class DimaCollectionLinkedList implements List {
 //    }
 
 
-    @Override
-    public int size() {
-        return 0;
-    }
 
-    @Override
-    public boolean isEmpty() {
-        return false;
-    }
 
     @Override
     public boolean contains(Object o) {
@@ -128,10 +177,6 @@ public class DimaCollectionLinkedList implements List {
         return new Object[0];
     }
 
-    @Override
-    public boolean add(Object o) {
-        return false;
-    }
 
     @Override
     public boolean remove(Object o) {
@@ -165,10 +210,7 @@ public class DimaCollectionLinkedList implements List {
 
 
 
-    @Override
-    public Object remove(int index) {
-        return null;
-    }
+
 
     @Override
     public int indexOf(Object o) {

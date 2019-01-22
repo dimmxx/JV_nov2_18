@@ -25,3 +25,29 @@ SELECT * FROM student WHERE age > 20 AND age < 45;
 SELECT * FROM student WHERE age BETWEEN 30 AND 45;
 SELECT * FROM student WHERE age IN (18, 17, 19);
 SELECT * FROM student ORDER BY age DESC;
+
+
+
+
+
+
+CREATE DATABASE ALKO;
+USE ALKO;
+CREATE TABLE category
+(
+    cat_id TINYINT PRIMARY KEY AUTO_INCREMENT,
+    cat_name VARCHAR(100)
+);
+
+CREATE TABLE drinks
+(
+d_id INT PRIMARY KEY AUTO_INCREMENT,
+d_name TINYTEXT NOT NULL,
+d_degree TINYINT,
+d_category TINYINT,
+d_volume FLOAT (5, 2),
+FOREIGN KEY (d_category) REFERENCES category(cat_id)
+);
+
+INSERT INTO category (cat_name)
+VALUES ('soft drink', 'wine', 'beer', 'vodka', 'shot');

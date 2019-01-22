@@ -59,11 +59,12 @@ public class DemoDimaCollection {
         dLinkedList.add(dog1);
         dLinkedList.add(dog2);
         dLinkedList.add(dog3);
+        dLinkedList.add(dog7);
         System.out.println(dLinkedList.getCurrentSize());
 
         System.out.println(dLinkedList.printOut());
 
-        dLinkedList.add(1, dog4);
+        dLinkedList.add(0, dog4);
         System.out.println("------------------------------");
         System.out.println(dLinkedList.printOut());
 
