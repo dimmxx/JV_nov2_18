@@ -1,0 +1,204 @@
+
+CREATE TABLE table1
+(
+    id INT,
+    name VARCHAR(100)
+);
+
+INSERT INTO table1 (id, name)
+VALUES (1, 'A');
+INSERT INTO table1 (id, name)
+VALUES (2, 'B');
+INSERT INTO table1 (id, name)
+VALUES (3, 'C');
+
+
+CREATE TABLE table2
+(
+    id INT,
+    nick VARCHAR(100)
+);
+
+INSERT INTO table2 (id, nick)
+VALUES (2, 'D');
+INSERT INTO table2 (id, nick)
+VALUES (3, 'E');
+INSERT INTO table2 (id, nick)
+VALUES (4, 'F');
+
+
+
+mysql> select * from table1
+    -> ;
++------+------+
+| id   | name |
++------+------+
+|    1 | A    |
+|    2 | B    |
+|    3 | C    |
++------+------+
+3 rows in set (0.00 sec)
+
+mysql> select * from table2
+    -> ;
++------+------+
+| id   | nick |
++------+------+
+|    2 | D    |
+|    3 | E    |
+|    4 | F    |
++------+------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM table1 UNION SELECT * FROM table2;
++------+------+
+| id   | name |
++------+------+
+|    1 | A    |
+|    2 | B    |
+|    3 | C    |
+|    2 | D    |
+|    3 | E    |
+|    4 | F    |
++------+------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT * FROM table1, table2;
++------+------+------+------+
+| id   | name | id   | nick |
++------+------+------+------+
+|    1 | A    |    2 | D    |
+|    2 | B    |    2 | D    |
+|    3 | C    |    2 | D    |
+|    1 | A    |    3 | E    |
+|    2 | B    |    3 | E    |
+|    3 | C    |    3 | E    |
+|    1 | A    |    4 | F    |
+|    2 | B    |    4 | F    |
+|    3 | C    |    4 | F    |
++------+------+------+------+
+9 rows in set (0.01 sec)
+
+mysql> SELECT * FROM table1, table2 WHERE table1.id=table2.id;
++------+------+------+------+
+| id   | name | id   | nick |
++------+------+------+------+
+|    2 | B    |    2 | D    |
+|    3 | C    |    3 | E    |
++------+------+------+------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM table1 JOIN table2;
++------+------+------+------+
+| id   | name | id   | nick |
++------+------+------+------+
+|    1 | A    |    2 | D    |
+|    2 | B    |    2 | D    |
+|    3 | C    |    2 | D    |
+|    1 | A    |    3 | E    |
+|    2 | B    |    3 | E    |
+|    3 | C    |    3 | E    |
+|    1 | A    |    4 | F    |
+|    2 | B    |    4 | F    |
+|    3 | C    |    4 | F    |
++------+------+------+------+
+9 rows in set (0.01 sec)
+
+mysql> SELECT * FROM table1 JOIN table2 on table1.id = table2.id;
++------+------+------+------+
+| id   | name | id   | nick |
++------+------+------+------+
+|    2 | B    |    2 | D    |
+|    3 | C    |    3 | E    |
++------+------+------+------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM table1 JOIN table2 on table1.id = table2.id 
+    -> WHERE table1.name = 'B';
++------+------+------+------+
+| id   | name | id   | nick |
++------+------+------+------+
+|    2 | B    |    2 | D    |
++------+------+------+------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM table1 JOIN table2 using (id) where table1.name = 'B';
++------+------+------+
+| id   | name | nick |
++------+------+------+
+|    2 | B    | D    |
++------+------+------+
+1 row in set (0.00 sec)
+
+
+
+
+
+
+CREATE TABLE customers
+(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100),
+    address VARCHAR(100),
+    phone VARCHAR(100)
+    
+);
+
+CREATE TABLE products
+(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100),
+    color VARCHAR(100),
+    price INT 
+);
+
+CREATE TABLE orders
+(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    num INT,
+    customer_id INT,
+    product_id INT,
+    FOREIGN KEY (customer_id) REFERENCES customers(id),
+    FOREIGN KEY (product_id) REFERENCES products(id)
+
+);
+
+
+INSERT INTO customers (name, address, phone)
+VALUES ('Petrov', 'Bucha', '0672998553');
+INSERT INTO customers (name, address, phone)
+VALUES ('Ivanov', 'Irpen', '0502108944');
+
+INSERT INTO products (name, color, price)
+VALUES ('iPhone', 'gold', '1000');
+INSERT INTO products (name, color, price)
+VALUES ('MacBook', 'silver', '1500');
+
+INSERT INTO orders (num, customer_id, product_id)
+VALUES (2, 2, 1);
+
+UPDATE orders set num = 666 where id = 2;
+
+SELECT * FROM customers JOIN orders ON customers.id = orders.customer_id JOIN products ON products.id = orders.product_id;
++----+--------+---------+------------+----+------+-------------+------------+----+--------+-------+-------+
+| id | name   | address | phone      | id | num  | customer_id | product_id | id | name   | color | price |
++----+--------+---------+------------+----+------+-------------+------------+----+--------+-------+-------+
+|  2 | Ivanov | Irpen   | 0502108944 |  1 |    2 |           2 |          1 |  1 | iPhone | gold  |  1000 |
+|  1 | Petrov | Bucha   | 0672998553 |  2 |  666 |           1 |          1 |  1 | iPhone | gold  |  1000 |
++----+--------+---------+------------+----+------+-------------+------------+----+--------+-------+-------+
+2 rows in set (0.00 sec)
+
+
+SELECT orders. num, customers.name, products.name AS prodName, products.price FROM customers JOIN orders ON customers.id = orders.customer_id JOIN products ON products.id = orders.product_id;
+
+
+
+
+
+
+
+
+
+
+
+

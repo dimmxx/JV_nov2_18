@@ -24,16 +24,16 @@ public class DimaCollectionLinkedList implements List {
         }
     }
 
-    private Node firstNode;
-    private Node lastNode;
+    private Node head;
+    private Node tail;
     private int currentSize = 0;
 
-    public Node getFirstNode() {
-        return firstNode;
+    public Node getHead() {
+        return head;
     }
 
-    public Node getLastNode() {
-        return lastNode;
+    public Node getTail() {
+        return tail;
     }
 
     public int getCurrentSize() {
@@ -46,18 +46,18 @@ public class DimaCollectionLinkedList implements List {
     }
 
     public boolean add(DogClass element) {
-        if (firstNode == null) {
+        if (head == null) {
             Node node = new Node(element);
-            firstNode = node;
-            lastNode = node;
+            head = node;
+            tail = node;
             node.previousN = null;
             currentSize++;
             return true;
-        } else if (firstNode != null) {
+        } else if (head != null) {
             Node node = new Node(element);
-            lastNode.nextN = node;
-            node.previousN = lastNode;
-            lastNode = node;
+            tail.nextN = node;
+            node.previousN = tail;
+            tail = node;
             currentSize++;
             return true;
         }
@@ -69,19 +69,19 @@ public class DimaCollectionLinkedList implements List {
         Node node = new Node((DogClass) element);
         Node current;
         if (index >= currentSize) {
-            current = lastNode;
+            current = tail;
             node.previousN = current;
             current.nextN = node;
-            lastNode = node;
+            tail = node;
             currentSize++;
         } else if (index == 0) {
-            firstNode.previousN = node;
-            node.nextN = firstNode;
+            head.previousN = node;
+            node.nextN = head;
             node.previousN = null;
-            firstNode = node;
+            head = node;
             currentSize++;
         } else {
-            current = firstNode;
+            current = head;
             for (int i = 0; i < index; i++) {
                 current = current.nextN;
             }
@@ -95,42 +95,34 @@ public class DimaCollectionLinkedList implements List {
 
     @Override
     public Object remove(int index) {
-        Node current = firstNode;
+        Node current = head;
         if (index == 0) {
-            firstNode = firstNode.nextN;
-            firstNode.previousN = null;
+            head = head.nextN;
+            head.previousN = null;
             currentSize--;
             return current;
         } else if (index == currentSize - 1) {
-            current = lastNode;
-            lastNode = lastNode.previousN;
-            lastNode.nextN = null;
+            current = tail;
+            tail = tail.previousN;
+            tail.nextN = null;
             currentSize--;
             return current;
         } else if (index >= currentSize) {
             return null;
         } else {
-
-
-
             for (int i = 0; i < index; i++) {
                 current = current.nextN;
             }
-            System.out.println(current);
-            System.out.println(current.previousN);
-            System.out.println(current.nextN);
-            current.previousN.nextN = current.nextN.previousN;
-            current.nextN.previousN = current.previousN.nextN;
-            current.nextN = current.previousN = null;
+            current.previousN.nextN = current.nextN;
+            current.nextN.previousN = current.previousN;
             currentSize--;
             return current;
         }
     }
 
-
     public StringBuilder printOut() {
         StringBuilder sb = new StringBuilder();
-        Node current = firstNode;
+        Node current = head;
         for (int i = 0; i < currentSize; i++) {
             sb.append(current.element);
             sb.append(" Node#" + i);
@@ -151,35 +143,78 @@ public class DimaCollectionLinkedList implements List {
         else return false;
     }
 
-//    public Iterator iterator(){
-//        return new Iterator() {
-//            private int currentIndex = 0;
-//            @Override
-//            public boolean hasNext() {
-//                return currentIndex < currentSize && array[currentIndex] != null;
-//            }
-//            @Override
-//            public DogClass next() {
-//                return ;
-//            }
-//        };
-//    }
+    @Override
+    public void clear() {
+        tail = null;
+        head = null;
+        currentSize = 0;
+    }
+
+    @Override
+    public Object[] toArray(Object[] a) {
+        return new Object[0];
+    }
+
+    @Override
+    public Object[] toArray() {
+        DogClass[] array = new DogClass[currentSize];
+        Node current = head;
+        for(int i = 0; i < currentSize; i++){
+            array[i] = current.element;
+            current = current.nextN;
+        }
+        return array;
+    }
+
+    @Override
+    public Object get(int index) {
+        Node current = head;
+        if(index >= 0 & index < currentSize) {
+            for (int i = 0; i < index; i++) {
+                current = current.nextN;
+            }
+            return current;
+        }else return null;
+    }
+
+    @Override
+    public Iterator iterator(){
+        return new Iterator() {
+            private Node current = head;
+            @Override
+            public boolean hasNext() {
+                if(current.nextN != null && current != tail){
+                    return true;
+                }else return false;
+            }
+            @Override
+            public DogClass next() {
+                current = current.nextN;
+                return current.nextN.element;
+            }
+        };
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @Override
     public boolean contains(Object o) {
         return false;
     }
-
-    @Override
-    public Iterator iterator() {
-        return null;
-    }
-
-    @Override
-    public Object[] toArray() {
-        return new Object[0];
-    }
-
 
     @Override
     public boolean remove(Object o) {
@@ -196,15 +231,6 @@ public class DimaCollectionLinkedList implements List {
         return false;
     }
 
-    @Override
-    public void clear() {
-
-    }
-
-    @Override
-    public Object get(int index) {
-        return null;
-    }
 
     @Override
     public Object set(int index, Object element) {
@@ -252,10 +278,7 @@ public class DimaCollectionLinkedList implements List {
         return false;
     }
 
-    @Override
-    public Object[] toArray(Object[] a) {
-        return new Object[0];
-    }
-
 
 }
+
+

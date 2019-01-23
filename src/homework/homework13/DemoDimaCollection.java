@@ -61,18 +61,34 @@ public class DemoDimaCollection {
         dLinkedList.add(dog7);
         System.out.println(dLinkedList.getCurrentSize());
         System.out.println(dLinkedList.printOut());
-//        System.out.println("First " + dLinkedList.getFirstNode());
-//        System.out.println("Last " + dLinkedList.getLastNode());
+//        System.out.println("First " + dLinkedList.getHead());
+//        System.out.println("Last " + dLinkedList.getTail());
 
 //        dLinkedList.add(0, dog4);
 //        System.out.println("------------------------------");
 //        System.out.println(dLinkedList.printOut());
 //
 
-        System.out.println("------------------------------");
-        System.out.println(dLinkedList.remove(1));
+//        System.out.println("------------------------------");
+//        System.out.println(dLinkedList.remove(0));
+//
+//        System.out.println(dLinkedList.printOut());
 
-        System.out.println(dLinkedList.printOut());
+
+//        System.out.println(Arrays.toString(dLinkedList.toArray()));
+
+
+        //System.out.println(dLinkedList.get(0));
+
+        //System.out.println(dLinkedList.getHead());
+
+
+        Iterator<DogClass> it = dLinkedList.iterator();
+        //while (it.hasNext()){
+            System.out.println("------" + it.next());
+        //}
+
+
 
 
     }
