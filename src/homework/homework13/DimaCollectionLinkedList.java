@@ -7,31 +7,34 @@ import java.util.ListIterator;
 
 public class DimaCollectionLinkedList implements List {
 
-
     private class Node {
         private DogClass element;
         protected Node nextN;
         private Node previousN;
 
-        public Node(DogClass element){
+        public Node(DogClass element) {
             this.element = element;
         }
 
-
-
-        public void toString(){
-
+        @Override
+        public String toString() {
+            return "Node{" +
+                    "element=" + element +
+                    '}';
         }
-    
-
     }
-
-
-
 
     private Node firstNode;
     private Node lastNode;
     private int currentSize = 0;
+
+    public Node getFirstNode() {
+        return firstNode;
+    }
+
+    public Node getLastNode() {
+        return lastNode;
+    }
 
     public int getCurrentSize() {
         return currentSize;
@@ -65,19 +68,19 @@ public class DimaCollectionLinkedList implements List {
     public void add(int index, Object element) {
         Node node = new Node((DogClass) element);
         Node current;
-        if(index >= currentSize){
-          current = lastNode;
-          node.previousN = current;
-          current.nextN = node;
-          lastNode = node;
-          currentSize++;
-       } else if(index == 0){
+        if (index >= currentSize) {
+            current = lastNode;
+            node.previousN = current;
+            current.nextN = node;
+            lastNode = node;
+            currentSize++;
+        } else if (index == 0) {
             firstNode.previousN = node;
             node.nextN = firstNode;
             node.previousN = null;
             firstNode = node;
             currentSize++;
-        }else {
+        } else {
             current = firstNode;
             for (int i = 0; i < index; i++) {
                 current = current.nextN;
@@ -93,30 +96,42 @@ public class DimaCollectionLinkedList implements List {
     @Override
     public Object remove(int index) {
         Node current = firstNode;
-        if(index == 0){
+        if (index == 0) {
             firstNode = firstNode.nextN;
             firstNode.previousN = null;
             currentSize--;
             return current;
-        }else {
+        } else if (index == currentSize - 1) {
+            current = lastNode;
+            lastNode = lastNode.previousN;
+            lastNode.nextN = null;
+            currentSize--;
+            return current;
+        } else if (index >= currentSize) {
+            return null;
+        } else {
+
+
+
             for (int i = 0; i < index; i++) {
                 current = current.nextN;
             }
-            current.previousN = current.nextN;
-            current.nextN = current.previousN;
+            System.out.println(current);
+            System.out.println(current.previousN);
+            System.out.println(current.nextN);
+            current.previousN.nextN = current.nextN.previousN;
+            current.nextN.previousN = current.previousN.nextN;
+            current.nextN = current.previousN = null;
             currentSize--;
             return current;
         }
     }
 
 
-
-
-
-    public StringBuilder printOut(){
+    public StringBuilder printOut() {
         StringBuilder sb = new StringBuilder();
         Node current = firstNode;
-        for(int i = 0; i < currentSize; i++){
+        for (int i = 0; i < currentSize; i++) {
             sb.append(current.element);
             sb.append(" Node#" + i);
             current = current.nextN;
@@ -124,14 +139,14 @@ public class DimaCollectionLinkedList implements List {
         return sb;
     }
 
-     @Override
+    @Override
     public int size() {
         return currentSize;
     }
 
     @Override
     public boolean isEmpty() {
-        if(currentSize == 0)
+        if (currentSize == 0)
             return true;
         else return false;
     }
@@ -149,9 +164,6 @@ public class DimaCollectionLinkedList implements List {
 //            }
 //        };
 //    }
-
-
-
 
     @Override
     public boolean contains(Object o) {
@@ -200,9 +212,6 @@ public class DimaCollectionLinkedList implements List {
     }
 
 
-
-
-
     @Override
     public int indexOf(Object o) {
         return 0;
@@ -247,13 +256,6 @@ public class DimaCollectionLinkedList implements List {
     public Object[] toArray(Object[] a) {
         return new Object[0];
     }
-
-
-
-
-
-
-
 
 
 }
