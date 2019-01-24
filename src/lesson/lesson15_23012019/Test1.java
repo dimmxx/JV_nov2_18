@@ -1,20 +1,16 @@
 package lesson.lesson15_23012019;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.*;
 
 public class Test1 {
 
      // "jdbc:mysql://s3.thehost.ua/itea2?" + "user=helen&password=123456"
 
-
-
-
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost:3306/ALKO";
+    static final String DB_URL = "jdbc:mysql://s3.thehost.ua/itea2";
 
-    static final String USER = "root";
-    static final String PASS = "root";
+    static final String USER = "helen";
+    static final String PASS = "123456";
 
     public static void main(String[] args) {
 
@@ -39,41 +35,35 @@ public class Test1 {
 
        System.out.println("Connection OK...");
 
-        Statement st = null;
-        try {
-            st = conn.createStatement();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+//        Statement st = null;
+//        try {
+//            st = conn.createStatement();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//
+//        String sql = "SELECT * FROM drinks";
+//        try {
+//            ResultSet rs = st.executeQuery(sql);
+//            while (rs.next()) {
+//                System.out.println(rs.getString(1) + " | " + rs.getString(2) + " | " + rs.getString(3)
+//                        + " | " + rs.getString(4) + " | " + rs.getString(5));
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//
+//        try {
+//            st.close();
+//            conn.close();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
 
-        String sql = "SELECT * FROM drinks";
-        try {
-            ResultSet rs = st.executeQuery(sql);
-            while (rs.next()) {
-                System.out.println(rs.getString(1) + " | " + rs.getString(2) + " | " + rs.getString(3)
-                        + " | " + rs.getString(4) + " | " + rs.getString(5));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
 
-        try {
-            st.close();
-            conn.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+
+
+
 
     }
-
-
-
-
-
-
-
-
-
-
-
 }
