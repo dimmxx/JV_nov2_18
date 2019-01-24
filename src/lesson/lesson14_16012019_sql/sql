@@ -2,6 +2,16 @@ sudo mysql -u root -p
 udo mysql -u root
 quit
 
+
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+FLUSH PRIVILEGES;
+
+
+
+
+
+
 SHOW DATABASES;
 USE ... ;
 SHOW TABLES;
