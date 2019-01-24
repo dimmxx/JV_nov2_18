@@ -181,16 +181,21 @@ public class DimaCollectionLinkedList implements List {
     public Iterator iterator(){
         return new Iterator() {
             private Node current = head;
+            private Node temp;
+            private int counter = 0;
+
             @Override
             public boolean hasNext() {
-                if(current.nextN != null && current != tail){
+                if(counter < currentSize){
                     return true;
                 }else return false;
             }
             @Override
             public DogClass next() {
+                temp = current;
                 current = current.nextN;
-                return current.nextN.element;
+                counter++;
+                return temp.element;
             }
         };
     }
@@ -202,19 +207,35 @@ public class DimaCollectionLinkedList implements List {
 
 
 
-
-
-
-
-
-
-
-
-
     @Override
     public boolean contains(Object o) {
+        Node current = head;
+        while (current != tail){
+            if (current.equals(o)){
+                return true;
+            }
+            current = current.nextN;
+        }
         return false;
     }
+
+
+    public boolean containsZZZ(DogClass o) {
+        Node current = head;
+        while (current != tail){
+            if (current.equals(o)){
+                return true;
+            }
+            current = current.nextN;
+        }
+        return false;
+    }
+
+
+
+
+
+
 
     @Override
     public boolean remove(Object o) {

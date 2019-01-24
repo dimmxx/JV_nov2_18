@@ -60,7 +60,7 @@ public class DemoDimaCollection {
         dLinkedList.add(dog3);
         dLinkedList.add(dog7);
         System.out.println(dLinkedList.getCurrentSize());
-        System.out.println(dLinkedList.printOut());
+        //System.out.println(dLinkedList.printOut());
 //        System.out.println("First " + dLinkedList.getHead());
 //        System.out.println("Last " + dLinkedList.getTail());
 
@@ -84,9 +84,12 @@ public class DemoDimaCollection {
 
 
         Iterator<DogClass> it = dLinkedList.iterator();
-        //while (it.hasNext()){
-            System.out.println("------" + it.next());
-        //}
+        while (it.hasNext()){
+            System.out.println(it.next());
+        }
+
+
+        System.out.println(dLinkedList.containsZZZ(dog1));
 
 
 

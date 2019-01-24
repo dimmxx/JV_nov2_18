@@ -1,31 +1,37 @@
-package lesson.lesson15_23012019;
+package lesson.lesson15_23012019_jdbc;
 
 import java.sql.*;
 
-public class Test1 {
+public class Main {
 
-     // "jdbc:mysql://s3.thehost.ua/itea2?" + "user=helen&password=123456"
 
-    static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://s3.thehost.ua/itea2";
+    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+    static final String DB_URL = "jdbc:mysql://localhost:3306/ALKO";
 
-    static final String USER = "helen";
-    static final String PASS = "123456";
+
+    static final String USER = "root";
+    static final String PASS = "";
+
 
     public static void main(String[] args) {
+
 
         try {
             // The newInstance() call is a work around for some
             // broken Java implementations
 
-            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
         } catch (Exception ex) {
             // handle the error
         }
 
         Connection conn = null;
         try {
+
+
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+
         } catch (SQLException ex) {
             // handle any errors
             System.out.println("SQLException: " + ex.getMessage());
@@ -33,8 +39,8 @@ public class Test1 {
             System.out.println("VendorError: " + ex.getErrorCode());
         }
 
-       System.out.println("Connection OK...");
-
+       System.out.println("Connection OK");
+//
 //        Statement st = null;
 //        try {
 //            st = conn.createStatement();
@@ -46,8 +52,7 @@ public class Test1 {
 //        try {
 //            ResultSet rs = st.executeQuery(sql);
 //            while (rs.next()) {
-//                System.out.println(rs.getString(1) + " | " + rs.getString(2) + " | " + rs.getString(3)
-//                        + " | " + rs.getString(4) + " | " + rs.getString(5));
+//                System.out.println(rs.getString(1) + rs.getString(2) + rs.getString(3) + rs.getString(4) + rs.getString(5));
 //            }
 //        } catch (SQLException e) {
 //            e.printStackTrace();
@@ -60,10 +65,6 @@ public class Test1 {
 //            e.printStackTrace();
 //        }
 
-
-
-
-
-
     }
+
 }

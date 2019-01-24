@@ -23,7 +23,7 @@ public class DogClass {
 
     @Override
     public String toString() {
-        return "\nDogClass {" + "name = " + name  + ", age = "
+        return "DogClass {" + "name = " + name  + ", age = "
                 + age + ", color = " + color + "}";
     }
 }
