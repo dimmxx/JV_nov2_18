@@ -1,5 +1,7 @@
 package homework.homework13;
 
+import java.util.Objects;
+
 public class DogClass {
 
     private String name;
@@ -26,4 +28,6 @@ public class DogClass {
         return "DogClass {" + "name = " + name  + ", age = "
                 + age + ", color = " + color + "}";
     }
+
+
 }

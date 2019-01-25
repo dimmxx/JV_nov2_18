@@ -1,9 +1,6 @@
 package homework.homework13;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
 
 public class DimaCollectionLinkedList implements List {
 
@@ -16,11 +13,26 @@ public class DimaCollectionLinkedList implements List {
             this.element = element;
         }
 
+        //@Override
+        public boolean equalsX(Object o) {
+            if (this == o) return true;
+            if (!(o instanceof Node)) return false;
+            Node node = (Node) o;
+            return Objects.equals(element.getAge(), node.element.getAge());
+        }
+
+
         @Override
         public String toString() {
             return "Node{" +
                     "element=" + element +
                     '}';
+
+
+
+
+
+
         }
     }
 
@@ -220,15 +232,16 @@ public class DimaCollectionLinkedList implements List {
     }
 
 
-    public boolean containsZZZ(DogClass o) {
+    public boolean containsZZZ(Object o) {
         Node current = head;
-        while (current != tail){
-            if (current.equals(o)){
-                return true;
-            }
-            current = current.nextN;
-        }
-        return false;
+        //while (current != tail){
+            //System.out.println(current.element);
+            //if (current.equals(o)){
+                //return true;
+            //}
+            //current = current.nextN;
+        //}
+        return current.equalsX(0);
     }
 
 
