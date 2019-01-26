@@ -18,9 +18,11 @@ public class DogClass {
     public String getName() {
         return name;
     }
-
     public int getAge() {
         return age;
+    }
+    public String getColor() {
+        return color;
     }
 
     @Override
@@ -28,6 +30,18 @@ public class DogClass {
         return "DogClass {" + "name = " + name  + ", age = "
                 + age + ", color = " + color + "}";
     }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof DogClass)) return false;
+        DogClass dogClass = (DogClass) o;
+        return getAge() == dogClass.getAge() &&
+                getName() == dogClass.getName() &&
+                getColor() == dogClass.color;
+    }
+
 
 
 }

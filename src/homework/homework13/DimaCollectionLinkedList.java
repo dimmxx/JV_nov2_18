@@ -13,24 +13,12 @@ public class DimaCollectionLinkedList implements List {
             this.element = element;
         }
 
-        //@Override
-        public boolean equalsX(Object o) {
-            if (this == o) return true;
-            if (!(o instanceof Node)) return false;
-            Node node = (Node) o;
-            return Objects.equals(element.getAge(), node.element.getAge());
-        }
-
 
         @Override
         public String toString() {
             return "Node{" +
                     "element=" + element +
                     '}';
-
-
-
-
 
 
         }
@@ -171,7 +159,7 @@ public class DimaCollectionLinkedList implements List {
     public Object[] toArray() {
         DogClass[] array = new DogClass[currentSize];
         Node current = head;
-        for(int i = 0; i < currentSize; i++){
+        for (int i = 0; i < currentSize; i++) {
             array[i] = current.element;
             current = current.nextN;
         }
@@ -181,26 +169,25 @@ public class DimaCollectionLinkedList implements List {
     @Override
     public Object get(int index) {
         Node current = head;
-        if(index >= 0 & index < currentSize) {
+        if (index >= 0 & index < currentSize) {
             for (int i = 0; i < index; i++) {
                 current = current.nextN;
             }
             return current;
-        }else return null;
+        } else return null;
     }
 
     @Override
-    public Iterator iterator(){
+    public Iterator iterator() {
         return new Iterator() {
             private Node current = head;
             private Node temp;
             private int counter = 0;
-
             @Override
             public boolean hasNext() {
-                if(counter < currentSize){
+                if (counter < currentSize) {
                     return true;
-                }else return false;
+                } else return false;
             }
             @Override
             public DogClass next() {
@@ -212,37 +199,33 @@ public class DimaCollectionLinkedList implements List {
         };
     }
 
-
-
-
-
-
-
-
     @Override
     public boolean contains(Object o) {
         Node current = head;
-        while (current != tail){
-            if (current.equals(o)){
+        do {
+            if (current.element.equals(o)) {
                 return true;
             }
-            current = current.nextN;
+            if (current != tail) current = current.nextN;
+        } while (current != tail);
+        return current.element.equals(o);
+    }
+
+    @Override
+    public boolean addAll(Collection c) {
+        Iterator it = c.iterator();
+        for (int i = 0; i < c.size(); i++) {
+            while ((it.hasNext())) {
+                this.add(it.next());
+            }
+
         }
         return false;
     }
 
+//==================================================================================
 
-    public boolean containsZZZ(Object o) {
-        Node current = head;
-        //while (current != tail){
-            //System.out.println(current.element);
-            //if (current.equals(o)){
-                //return true;
-            //}
-            //current = current.nextN;
-        //}
-        return current.equalsX(0);
-    }
+
 
 
 
@@ -255,10 +238,6 @@ public class DimaCollectionLinkedList implements List {
         return false;
     }
 
-    @Override
-    public boolean addAll(Collection c) {
-        return false;
-    }
 
     @Override
     public boolean addAll(int index, Collection c) {

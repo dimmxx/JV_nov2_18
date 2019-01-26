@@ -15,6 +15,7 @@ public class DemoDimaCollection {
 //      DimaCollectionArrayList dArrayList = new DimaCollectionArrayList();
 
         DimaCollectionLinkedList dLinkedList = new DimaCollectionLinkedList();
+        DimaCollectionLinkedList dLinkedList2 = new DimaCollectionLinkedList();
 
         DogClass dog1 = new DogClass("Poppy", 15, "black");
         DogClass dog2 = new DogClass("Emma", 12, "brown");
@@ -56,10 +57,13 @@ public class DemoDimaCollection {
 
         System.out.println(dLinkedList.getCurrentSize());
         dLinkedList.add(dog1);
-        //dLinkedList.add(dog2);
-        //dLinkedList.add(dog3);
-        //dLinkedList.add(dog7);
+        dLinkedList.add(dog2);
+        dLinkedList.add(dog3);
+        dLinkedList.add(dog7);
         System.out.println(dLinkedList.getCurrentSize());
+
+        dLinkedList2.add(dog1);
+        dLinkedList2.add(dog7);
         //System.out.println(dLinkedList.printOut());
 //        System.out.println("First " + dLinkedList.getHead());
 //        System.out.println("Last " + dLinkedList.getTail());
@@ -83,15 +87,18 @@ public class DemoDimaCollection {
         //System.out.println(dLinkedList.getHead());
 
 
+
+
+        System.out.println("HEAD: " + dLinkedList.getHead());
+        System.out.println("TAIL: " + dLinkedList.getTail());
+
+        dLinkedList.addAll(dLinkedList2);
+
         Iterator<DogClass> it = dLinkedList.iterator();
         while (it.hasNext()){
             System.out.println(it.next());
         }
 
-
-        System.out.println(dLinkedList.getHead());
-
-        System.out.println(dLinkedList.containsZZZ(dLinkedList.getHead()));
 
 
 
