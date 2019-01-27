@@ -16,14 +16,18 @@ public class MainDog {
         Dog dog = new Dog("Sharik", 10, owner);
 
 
-        XStream xs = new XStream(new StaxDriver());
-        xs.toXML(dog, new FileOutputStream("mate.xml"));
+//        XStream xs = new XStream(new StaxDriver());
+//        xs.toXML(dog, new FileOutputStream("mate.xml"));
+//
+//        XStream xs1 = new XStream(new DomDriver());
+//        Dog dog1  = new Dog();
+//        xs1.fromXML(new FileInputStream("mate.xml"), dog1);
+//        System.out.println(dog1.toString());
 
 
-        XStream xs1 = new XStream(new DomDriver());
-        Dog dog1  = new Dog();
-        xs.fromXML(new FileInputStream("mate.xml"), dog1);
-        System.out.println(dog1.toString());
+        DogController.writeXML("matte.xml", dog);
+
+        System.out.println(DogController.readXML("matte.xml").toString());
 
 
 

@@ -13,7 +13,6 @@ public class DBWorkerSQLite {
     Connection conn = null;
     Statement st = null;
 
-
     public DBWorkerSQLite() {
 
         try {
@@ -35,7 +34,6 @@ public class DBWorkerSQLite {
             System.err.println(e.getMessage());
         }
 
-        createTable();
     }
 
     public void close() {
@@ -50,17 +48,12 @@ public class DBWorkerSQLite {
 
     public void createTable() {
         try {
-            st.executeUpdate("create table mate (id, name, age)");
+            st.executeUpdate("CREATE TABLE mate (ID INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR, age INT)");
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
     }
-
-
-
-
-
 
 
     public boolean addMate(Mate mate) {

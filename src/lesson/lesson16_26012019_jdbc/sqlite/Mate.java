@@ -32,7 +32,7 @@ public class Mate {
 
     @Override
     public String toString() {
-        return "Mate{" +
+        return "\nMate{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", age=" + age +

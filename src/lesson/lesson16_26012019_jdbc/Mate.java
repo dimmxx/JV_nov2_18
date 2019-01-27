@@ -1,5 +1,7 @@
 package lesson.lesson16_26012019_jdbc;
 
+import java.util.Objects;
+
 public class Mate {
 
     private int id;
@@ -32,10 +34,24 @@ public class Mate {
 
     @Override
     public String toString() {
-        return "Mate{" +
+        return "\nMate{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Mate)) return false;
+        Mate mate = (Mate) o;
+        return getAge() == mate.getAge() &&
+                Objects.equals(getName(), mate.getName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getAge());
     }
 }

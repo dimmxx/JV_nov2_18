@@ -3,8 +3,13 @@ udo mysql -u root
 quit
 
 
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
 FLUSH PRIVILEGES;
+
+MacOs: sudo /usr/local/mysql/support-files/mysql.server start
+
+
+
 
 
 

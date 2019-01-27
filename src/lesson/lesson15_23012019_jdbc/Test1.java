@@ -16,7 +16,7 @@ public class Test1 {
             // The newInstance() call is a work around for some
             // broken Java implementations
 
-            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+            Class.forName(JDBC_DRIVER).newInstance();
         } catch (Exception ex) {
             // handle the error
         }
@@ -40,6 +40,13 @@ public class Test1 {
             e.printStackTrace();
         }
 
+        String updt = "CREATE TABLE mate (id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(30), area VARCHAR(30), perimeter VARCHAR(30), user VARCHAR(50));";
+        try {
+            st.executeUpdate(updt);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         String sql = "SHOW TABLES";
         try {
             ResultSet rs = st.executeQuery(sql);
@@ -50,7 +57,8 @@ public class Test1 {
             e.printStackTrace();
         }
 
-        String sql1 = "DESCRIBE ss";
+
+        String sql1 = "DESCRIBE mate";
         try {
             ResultSet rs = st.executeQuery(sql1);
 
@@ -62,16 +70,8 @@ public class Test1 {
             e.printStackTrace();
         }
 
-        String updt = "INSERT INTO ss (animal, name, type, age) VALUES ('fox', 'Borysov Dmytro', 'animal', '7')";
-        try {
-            st.executeUpdate(updt);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
 
-
-
-        String sql2 = "SELECT * FROM ss";
+        String sql2 = "SELECT * FROM mate";
         try {
             ResultSet rs = st.executeQuery(sql2);
             while (rs.next()) {

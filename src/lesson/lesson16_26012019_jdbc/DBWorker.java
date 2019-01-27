@@ -2,6 +2,7 @@ package lesson.lesson16_26012019_jdbc;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -22,9 +23,9 @@ public class DBWorker {
 
     public DBWorker() {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+            Class.forName(JDBC_DRIVER).newInstance();
         } catch (Exception ex) {
-            System.out.println("Error");
+            System.out.println("Connection error...");
         }
 
         try {
@@ -77,7 +78,7 @@ public class DBWorker {
                 return mate;
             }
         } catch (SQLException e) {
-            return null;
+            System.out.println("SQL exception " + e.getMessage());
         }
         return null;
     }
@@ -119,7 +120,6 @@ public class DBWorker {
         return list;
     }
 
-
     public List<Mate> getMateAllX() {
         List<Mate> list = new ArrayList<>();
         String query = GET_MATE_ALL;
@@ -138,8 +138,42 @@ public class DBWorker {
         return list;
     }
 
+    public Set<Mate> getMateSetAllDistinct() {
+        Set<Mate> listSet = new HashSet<>();
+        String query = GET_MATE_ALL;
+        try {
+            ResultSet rs = st.executeQuery(query);
+            while (rs.next()) {
+                Mate mate = new Mate();
+                mate.setId(Integer.parseInt(rs.getString(1)));
+                mate.setName(rs.getString(2));
+                mate.setAge(Integer.parseInt(rs.getString(3)));
+                listSet.add(mate);
+            }
+        } catch (SQLException e) {
+            System.out.println("SQL exception " + e.getMessage());
+        }
+        return listSet;
+    }
+
+
 //    public Set<Mate> getMateSetAllX() {
-//        Set <Mate> listSet = new ArrayList<>();
+//        Set<Mate> listSet = new HashSet<>() {
+//            @Override
+//            public boolean contains(Object o) {
+//                return super.contains(o);
+//            }
+//
+//            @Override
+//            public boolean equals(Object o) {
+//                return super.equals(o);
+//            }
+//
+//            @Override
+//            public int hashCode() {
+//                return super.hashCode();
+//            }
+//        };
 //        String query = GET_MATE_ALL;
 //        try {
 //            ResultSet rs = st.executeQuery(query);
@@ -154,43 +188,12 @@ public class DBWorker {
 //            System.out.println("SQL exception " + e.getMessage());
 //        }
 //        return list;
-
-
-//    } override equals hashcode
-
-
-//    public Set<Mate> getMateSetAllX() {
-//        Set <Mate> listSet = new ArrayList<>(){
-//@Override
-//    public boolean contains (Object o){
-//        return super.contains(o);
 //
 //
+//    }
 //
-//}
-////        String query = GET_MATE_ALL;
-////        try {
-//            ResultSet rs = st.executeQuery(query);
-//            while (rs.next()) {
-//                Mate mate = new Mate();
-//                mate.setId(Integer.parseInt(rs.getString(1)));
-//                mate.setName(rs.getString(2));
-//                mate.setAge(Integer.parseInt(rs.getString(3)));
-//                list.add(mate);
-//            }
-//        } catch (SQLException e) {
-//            System.out.println("SQL exception " + e.getMessage());
-//        }
-//        return list;
-
-
-
-
-//    } override equals hashcode
-
-
-
-
+//    override equals
+//    hashcode
 
 
 }

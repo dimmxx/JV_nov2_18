@@ -7,10 +7,8 @@ import java.util.Set;
 
 public class DBWorkerPS {
 
-
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
     static final String DB_URL = "jdbc:mysql://localhost:3306/ALKO";
-
     static final String USER = "root";
     static final String PASS = "root";
 
@@ -22,7 +20,7 @@ public class DBWorkerPS {
 
     public DBWorkerPS() {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+            Class.forName(JDBC_DRIVER).newInstance();
         } catch (Exception ex) {
             System.out.println("Error");
         }
@@ -141,60 +139,5 @@ public class DBWorkerPS {
         }
         return list;
     }
-
-//    public Set<Mate> getMateSetAllX() {
-//        Set <Mate> listSet = new ArrayList<>();
-//        String query = GET_MATE_ALL;
-//        try {
-//            ResultSet rs = st.executeQuery(query);
-//            while (rs.next()) {
-//                Mate mate = new Mate();
-//                mate.setId(Integer.parseInt(rs.getString(1)));
-//                mate.setName(rs.getString(2));
-//                mate.setAge(Integer.parseInt(rs.getString(3)));
-//                list.add(mate);
-//            }
-//        } catch (SQLException e) {
-//            System.out.println("SQL exception " + e.getMessage());
-//        }
-//        return list;
-
-
-//    } override equals hashcode
-
-
-//    public Set<Mate> getMateSetAllX() {
-//        Set <Mate> listSet = new ArrayList<>(){
-//@Override
-//    public boolean contains (Object o){
-//        return super.contains(o);
-//
-//
-//
-//}
-////        String query = GET_MATE_ALL;
-////        try {
-//            ResultSet rs = st.executeQuery(query);
-//            while (rs.next()) {
-//                Mate mate = new Mate();
-//                mate.setId(Integer.parseInt(rs.getString(1)));
-//                mate.setName(rs.getString(2));
-//                mate.setAge(Integer.parseInt(rs.getString(3)));
-//                list.add(mate);
-//            }
-//        } catch (SQLException e) {
-//            System.out.println("SQL exception " + e.getMessage());
-//        }
-//        return list;
-
-
-
-
-//    } override equals hashcode
-
-
-
-
-
 
 }
