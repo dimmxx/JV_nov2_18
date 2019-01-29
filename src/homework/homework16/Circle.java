@@ -3,12 +3,12 @@ package homework.homework16;
 public class Circle extends ShapeClass {
 
     private String name = "Circle";
-    private double radius = inputData();
+    private double radius;
     private double area = Math.pow(radius, 2) * Math.PI;
     private double circumference = radius * 2 * Math.PI;
 
-    public Circle(String color){
-        super(color);
+    public Circle(int side, String color){
+        super(side, color);
     }
 
     @Override
@@ -21,9 +21,5 @@ public class Circle extends ShapeClass {
         System.out.println("Circle сircumference: " + circumference);
     }
 
-    @Override
-    protected double inputData(){
-        System.out.println("Enter the circle radius: ");
-        return super.inputData();
-    }
+
 }

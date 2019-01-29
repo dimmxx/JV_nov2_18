@@ -19,20 +19,16 @@ public class GraphicsEn extends JFrame {
     private JButton buttonT = new JButton("Triangle");
     private JButton buttonR = new JButton("Rectangular");
     private JButton buttonBack = new JButton("Back");
-    private JTextField field1 = new JTextField(10);
     private JButton buttonCreate = new JButton("Create shape");
+    private JTextField field1 = new JTextField(10);
 
     JPanel panelShape = getPanelShape();
-    JPanel panelInput = getPanelInput();
-
 
     public GraphicsEn() {
         super("F-Factory");
         setBounds(xPos, yPos, FRAME_WIDTH, FRAME_HEIGHT);
 
-
         add(panelShape);
-        add(panelInput);
 
         setVisible(true);
         setResizable(false);
@@ -48,24 +44,21 @@ public class GraphicsEn extends JFrame {
                 ifButtonCPressed();
             }
         });
+
         buttonR.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 ifButtonRPressed();
             }
         });
+
         buttonT.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 ifButtonTPressed();
             }
         });
-        buttonBack.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                ifButtonBackPressed();
-            }
-        });
+
         buttonCreate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
@@ -77,65 +70,44 @@ public class GraphicsEn extends JFrame {
     private JPanel getPanelShape() {
         JPanel panel = new JPanel();
 
-        panel.setBackground(new Color(70, 80, 255));
+        //panel.setBackground(new Color(70, 80, 255));
 
         panel.add(buttonC);
         panel.add(buttonR);
         panel.add(buttonT);
-
-
-
-        return panel;
-    }
-
-    private JPanel getPanelInput() {
-
-        JPanel panel = new JPanel();
-
-
-        panel.add(field1);
         panel.add(buttonCreate);
-        panel.add(buttonBack);
+        panel.add(field1);
 
         return panel;
-
     }
+
+
 
 
     private void ifButtonCPressed(){
-
-
-
-
+        makeCircle(Integer.parseInt(field1.getText()), "black");
     }
+
+
     private void ifButtonTPressed(){
 
     }
     private void ifButtonRPressed(){
 
     }
-    private void ifButtonBackPressed(){
 
-        panelInput.setVisible(false);
-        add(panelShape);
-        System.out.println("Pressed");
-
-
-    }
     private void ifButtonCreatePressed(){
 
 
-
-
     }
 
 
 
 
-
-
-
-
+    public Circle makeCircle(int radius, String color){
+        ShapeClass circle = new Circle(radius, color);
+        return (Circle) circle;
+    }
 
 
 
