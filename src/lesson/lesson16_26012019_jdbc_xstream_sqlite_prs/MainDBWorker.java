@@ -1,4 +1,4 @@
-package lesson.lesson16_26012019_jdbc;
+package lesson.lesson16_26012019_jdbc_xstream_sqlite_prs;
 
 public class MainDBWorker {
 

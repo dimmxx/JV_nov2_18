@@ -2,15 +2,15 @@ package homework.homework16;
 
 public class Circle extends ShapeClass {
 
-    private String name;
+    private String name = "Circle";
     private double area;
     private double perimeter;
 
     public Circle(int side) {
         super(side);
-        name = "Circle";
         area = Math.pow(side, 2) * Math.PI;
         perimeter = side * 2 * Math.PI;
+        this.add();
     }
 
     @Override
@@ -43,14 +43,6 @@ public class Circle extends ShapeClass {
         this.perimeter = perimeter;
     }
 
-
-    @Override
-    public boolean add() {
-        DbWorkerItea2 worker = new DbWorkerItea2();
-        worker.addShape(this);
-        worker = null;
-        return false;
-    }
 }
 
 

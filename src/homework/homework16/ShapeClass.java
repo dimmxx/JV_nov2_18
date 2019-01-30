@@ -17,7 +17,7 @@ public class ShapeClass {
 
     public ShapeClass(int side) {
         this.side = side;
-        this.add();
+
     }
 
 
@@ -71,16 +71,27 @@ public class ShapeClass {
         this.user = user;
     }
 
-    public boolean add(){
+
+
+
+    public boolean add() {
+        DbWorkerItea2 worker = new DbWorkerItea2();
+        worker.addShape(this);
+        worker = null;
         return false;
     }
 
 
-
-
-
-
-
+    @Override
+    public String toString() {
+        return "\nShapeClass{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", area=" + area +
+                ", perimeter=" + perimeter +
+                ", user='" + user + '\'' +
+                '}';
+    }
 
     public void printFigure() {
         System.out.println();

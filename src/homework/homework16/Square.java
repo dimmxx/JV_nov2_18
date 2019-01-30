@@ -1,29 +1,47 @@
-//package homework.homework16;
-//
-//public class Square extends ShapeClass {
-//
-//    private String name = "Square";
-//    private double side = inputData();
-//    private double perimeter = side * 4;
-//    private double area = Math.pow(side, 2);
-//
-//    public Square(String color){
-//        super(color);
-//    }
-//
-//    @Override
-//    public void printFigure() {
-//        System.out.println();
-//        System.out.println("Shape name: " + name);
-//        super.printFigure();
-//        System.out.println("Square side: " + side);
-//        System.out.println("Square area: " + area);
-//        System.out.println("Square perimeter: " + perimeter);
-//    }
-//
-//    @Override
-//    protected double inputData(){
-//        System.out.println("Enter a side of the Square: ");
-//        return super.inputData();
-//    }
-//}
+package homework.homework16;
+
+public class Square extends ShapeClass {
+
+    private String name = "Square";
+    private double area;
+    private double perimeter;
+
+    public Square(int side) {
+        super(side);
+        area = Math.pow(side, 2);
+        perimeter = side * 4;
+        this.add();
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public double getArea() {
+        return area;
+    }
+
+    @Override
+    public void setArea(double area) {
+        this.area = area;
+    }
+
+    @Override
+    public double getPerimeter() {
+        return perimeter;
+    }
+
+    @Override
+    public void setPerimeter(double perimeter) {
+        this.perimeter = perimeter;
+    }
+
+}
+

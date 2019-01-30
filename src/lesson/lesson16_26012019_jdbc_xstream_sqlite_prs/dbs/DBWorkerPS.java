@@ -1,9 +1,8 @@
-package lesson.lesson16_26012019_jdbc.dbs;
+package lesson.lesson16_26012019_jdbc_xstream_sqlite_prs.dbs;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class DBWorkerPS {
 

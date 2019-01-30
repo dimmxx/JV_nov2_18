@@ -1,12 +1,10 @@
-package lesson.lesson16_26012019_jdbc.xstream;
+package lesson.lesson16_26012019_jdbc_xstream_sqlite_prs.xstream;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
-import com.thoughtworks.xstream.io.xml.StaxDriver;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 
 public class StaxMain {
 

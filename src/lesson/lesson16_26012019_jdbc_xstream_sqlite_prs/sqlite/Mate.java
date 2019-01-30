@@ -1,6 +1,4 @@
-package lesson.lesson16_26012019_jdbc;
-
-import java.util.Objects;
+package lesson.lesson16_26012019_jdbc_xstream_sqlite_prs.sqlite;
 
 public class Mate {
 
@@ -39,19 +37,5 @@ public class Mate {
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Mate)) return false;
-        Mate mate = (Mate) o;
-        return getAge() == mate.getAge() &&
-                Objects.equals(getName(), mate.getName());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getName(), getAge());
     }
 }

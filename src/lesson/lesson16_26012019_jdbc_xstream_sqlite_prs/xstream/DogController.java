@@ -1,4 +1,4 @@
-package lesson.lesson16_26012019_jdbc.xstream;
+package lesson.lesson16_26012019_jdbc_xstream_sqlite_prs.xstream;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;

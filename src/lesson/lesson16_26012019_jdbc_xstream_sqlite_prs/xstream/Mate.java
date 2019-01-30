@@ -1,10 +1,21 @@
-package lesson.lesson16_26012019_jdbc.dbs;
+package lesson.lesson16_26012019_jdbc_xstream_sqlite_prs.xstream;
 
 public class Mate {
 
     private int id;
     private String name;
     private int age;
+
+
+    public Mate(){
+
+    }
+
+    public Mate(int id, String name, int age) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+    }
 
     public int getId() {
         return id;

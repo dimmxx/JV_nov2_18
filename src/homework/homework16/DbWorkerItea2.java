@@ -1,5 +1,6 @@
 package homework.homework16;
 
+import java.io.FileNotFoundException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -12,8 +13,32 @@ public class DbWorkerItea2 {
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
     static final String DB_URL = "jdbc:mysql://s3.thehost.ua/itea2";
 
-    static final String USER = "helen";
-    static final String PASS = "123456";
+//    static final String USER = "helen";
+//    static final String PASS = "123456";
+
+
+
+
+
+        private String USER;
+    private String PASS;
+    {
+        try {
+            USER = XmlController.readXML("creds.xml").getLogin();
+            PASS= XmlController.readXML("creds.xml").getPassword();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+
+
+
+
+
 
     private Connection conn;
     private Statement st;
@@ -69,27 +94,25 @@ public class DbWorkerItea2 {
         }
     }
 
-
-    public ShapeClass getShape(int id) {
-        ShapeClass shape = null;
+    public List<ShapeClass> getShapeAll() {
+        List<ShapeClass> list = new ArrayList<>();
         String query = GET_SHAPE_ALL;
         try {
             ResultSet rs = st.executeQuery(query);
-            if (rs.next()) {
-                shape = new ShapeClass();
+            while (rs.next()) {
+                ShapeClass shape = new ShapeClass();
                 shape.setId(Integer.parseInt(rs.getString(1)));
                 shape.setName(rs.getString(2));
                 shape.setArea(Double.parseDouble(rs.getString(3)));
                 shape.setPerimeter(Double.parseDouble(rs.getString(4)));
                 shape.setUser(rs.getString(5));
-
-                return shape;
+                list.add(shape);
             }
         } catch (SQLException e) {
             System.out.println("SQL exception " + e.getMessage());
         }
-        return null;
+        return list;
+
+
     }
-
-
 }

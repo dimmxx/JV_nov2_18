@@ -4,11 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class GraphicsEn extends JFrame {
 
-    public final static int FRAME_WIDTH = 800;
-    public final static int FRAME_HEIGHT = 700;
+    public final static int FRAME_WIDTH = 900;
+    public final static int FRAME_HEIGHT = 800;
 
     private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
@@ -17,10 +18,12 @@ public class GraphicsEn extends JFrame {
 
     private JButton buttonC = new JButton("Circle");
     private JButton buttonT = new JButton("Triangle");
-    private JButton buttonR = new JButton("Rectangular");
+    private JButton buttonS = new JButton("Square");
     private JButton buttonBack = new JButton("Back");
-    private JButton buttonCreate = new JButton("Create shape");
+    private JButton buttonShow = new JButton("Show shapes");
     private JTextField field1 = new JTextField(10);
+    private JLabel labeldb = new JLabel();
+    private JTextArea textArea = new JTextArea();
 
     JPanel panelShape = getPanelShape();
 
@@ -45,10 +48,10 @@ public class GraphicsEn extends JFrame {
             }
         });
 
-        buttonR.addActionListener(new ActionListener() {
+        buttonS.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                ifButtonRPressed();
+                ifButtonSPressed();
             }
         });
 
@@ -59,10 +62,10 @@ public class GraphicsEn extends JFrame {
             }
         });
 
-        buttonCreate.addActionListener(new ActionListener() {
+        buttonShow.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                ifButtonCreatePressed();
+                ifButtonShowPressed();
             }
         });
     }
@@ -70,13 +73,17 @@ public class GraphicsEn extends JFrame {
     private JPanel getPanelShape() {
         JPanel panel = new JPanel();
 
-        //panel.setBackground(new Color(70, 80, 255));
+        panel.setBackground(new Color(70, 80, 255));
 
         panel.add(buttonC);
-        panel.add(buttonR);
+        panel.add(buttonS);
         panel.add(buttonT);
-        panel.add(buttonCreate);
+        panel.add(buttonShow);
         panel.add(field1);
+
+
+        labeldb.setSize(100, 100);
+        panel.add(textArea);
 
         return panel;
     }
@@ -90,26 +97,45 @@ public class GraphicsEn extends JFrame {
 
 
     private void ifButtonTPressed(){
-
-    }
-    private void ifButtonRPressed(){
-
-    }
-
-    private void ifButtonCreatePressed(){
-
-
+        makeTriangle(Integer.parseInt(field1.getText()));
     }
 
 
+    private void ifButtonSPressed(){
+        makeSquare(Integer.parseInt(field1.getText()));
+    }
 
+    private void ifButtonShowPressed(){
+        DbWorkerItea2 dbworker = new DbWorkerItea2();
+        textArea.setText(dbworker.getShapeAll().toString());
+    }
 
     public Circle makeCircle(int side){
         ShapeClass circle = new Circle(side);
         return (Circle) circle;
     }
 
+    public Square makeSquare(int side){
+        ShapeClass square = new Square(side);
+        return (Square) square;
+    }
+
+    public Triangle makeTriangle(int side){
+        ShapeClass triangle = new Triangle(side);
+        return (Triangle) triangle;
+    }
 
 
 
 }
+
+
+
+
+
+
+
+
+
+
+

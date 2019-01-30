@@ -1,4 +1,4 @@
-package lesson.lesson16_26012019_jdbc.sqlite;
+package lesson.lesson16_26012019_jdbc_xstream_sqlite_prs.sqlite;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

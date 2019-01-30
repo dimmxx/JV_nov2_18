@@ -1,39 +1,47 @@
-package lesson.lesson16_26012019_jdbc.sqlite;
+package lesson.lesson16_26012019_jdbc_xstream_sqlite_prs;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class DBWorkerSQLite {
+public class DBWorker {
 
+
+    static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
+    static final String DB_URL = "jdbc:mysql://localhost:3306/ALKO";
+
+    static final String USER = "root";
+    static final String PASS = "root";
+
+    private Connection conn;
+    private Statement st;
     private final static String ADD_MATE = "INSERT INTO mate (name, age) VALUES";
     private final static String GET_MATE = "SELECT * FROM mate WHERE id = ";
     private final static String GET_MATE_ALL = "SELECT * FROM mate";
-    Connection conn = null;
-    Statement st = null;
 
-    public DBWorkerSQLite() {
+    public DBWorker() {
+        try {
+            Class.forName(JDBC_DRIVER).newInstance();
+        } catch (Exception ex) {
+            System.out.println("Connection error...");
+        }
 
         try {
-            Class.forName("org.sqlite.JDBC");
-        } catch (ClassNotFoundException e) {
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+        } catch (SQLException ex) {
+            // handle any errors
+            System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("VendorError: " + ex.getErrorCode());
+        }
+
+        try {
+            st = conn.createStatement();
+        } catch (SQLException e) {
             e.printStackTrace();
         }
-
-        try {
-            // create a database connection
-            conn = DriverManager.getConnection("jdbc:sqlite:sample.db");
-            st = conn.createStatement();
-            st.setQueryTimeout(30);  // set timeout to 30 sec.
-            System.out.println("Connection OK");
-
-        } catch (SQLException e) {
-            // if the error message is "out of memory",
-            // it probably means no database file is found
-            System.err.println(e.getMessage());
-        }
-
     }
 
     public void close() {
@@ -45,16 +53,6 @@ public class DBWorkerSQLite {
         }
 
     }
-
-    public void createTable() {
-        try {
-            st.executeUpdate("CREATE TABLE mate (ID INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR, age INT)");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-    }
-
 
     public boolean addMate(Mate mate) {
 
@@ -80,7 +78,7 @@ public class DBWorkerSQLite {
                 return mate;
             }
         } catch (SQLException e) {
-            return null;
+            System.out.println("SQL exception " + e.getMessage());
         }
         return null;
     }
@@ -139,4 +137,63 @@ public class DBWorkerSQLite {
         }
         return list;
     }
+
+    public Set<Mate> getMateSetAllDistinct() {
+        Set<Mate> listSet = new HashSet<>();
+        String query = GET_MATE_ALL;
+        try {
+            ResultSet rs = st.executeQuery(query);
+            while (rs.next()) {
+                Mate mate = new Mate();
+                mate.setId(Integer.parseInt(rs.getString(1)));
+                mate.setName(rs.getString(2));
+                mate.setAge(Integer.parseInt(rs.getString(3)));
+                listSet.add(mate);
+            }
+        } catch (SQLException e) {
+            System.out.println("SQL exception " + e.getMessage());
+        }
+        return listSet;
+    }
+
+
+//    public Set<Mate> getMateSetAllX() {
+//        Set<Mate> listSet = new HashSet<>() {
+//            @Override
+//            public boolean contains(Object o) {
+//                return super.contains(o);
+//            }
+//
+//            @Override
+//            public boolean equals(Object o) {
+//                return super.equals(o);
+//            }
+//
+//            @Override
+//            public int hashCode() {
+//                return super.hashCode();
+//            }
+//        };
+//        String query = GET_MATE_ALL;
+//        try {
+//            ResultSet rs = st.executeQuery(query);
+//            while (rs.next()) {
+//                Mate mate = new Mate();
+//                mate.setId(Integer.parseInt(rs.getString(1)));
+//                mate.setName(rs.getString(2));
+//                mate.setAge(Integer.parseInt(rs.getString(3)));
+//                list.add(mate);
+//            }
+//        } catch (SQLException e) {
+//            System.out.println("SQL exception " + e.getMessage());
+//        }
+//        return list;
+//
+//
+//    }
+//
+//    override equals
+//    hashcode
+
+
 }
