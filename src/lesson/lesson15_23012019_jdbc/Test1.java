@@ -40,12 +40,12 @@ public class Test1 {
             e.printStackTrace();
         }
 
-        String updt = "CREATE TABLE mate (id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(30), area VARCHAR(30), perimeter VARCHAR(30), user VARCHAR(50));";
-        try {
-            st.executeUpdate(updt);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+//        String updt = "CREATE TABLE mate (id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(30), area VARCHAR(30), perimeter VARCHAR(30), user VARCHAR(50));";
+//        try {
+//            st.executeUpdate(updt);
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
 
         String sql = "SHOW TABLES";
         try {

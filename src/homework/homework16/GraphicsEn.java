@@ -85,7 +85,7 @@ public class GraphicsEn extends JFrame {
 
 
     private void ifButtonCPressed(){
-        makeCircle(Integer.parseInt(field1.getText()), "black");
+        makeCircle(Integer.parseInt(field1.getText()));
     }
 
 
@@ -104,8 +104,8 @@ public class GraphicsEn extends JFrame {
 
 
 
-    public Circle makeCircle(int radius, String color){
-        ShapeClass circle = new Circle(radius, color);
+    public Circle makeCircle(int side){
+        ShapeClass circle = new Circle(side);
         return (Circle) circle;
     }
 
