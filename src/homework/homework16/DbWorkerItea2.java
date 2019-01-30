@@ -11,33 +11,27 @@ public class DbWorkerItea2 {
 
 
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://s3.thehost.ua/itea2";
+    static String DB_URL;
+
+            //= "jdbc:mysql://s3.thehost.ua/itea2";
 
 //    static final String USER = "helen";
 //    static final String PASS = "123456";
 
 
-
-
-
-        private String USER;
+    private String USER;
     private String PASS;
+
+
     {
         try {
             USER = XmlController.readXML("creds.xml").getLogin();
-            PASS= XmlController.readXML("creds.xml").getPassword();
+            PASS = XmlController.readXML("creds.xml").getPassword();
+            DB_URL = XmlController.readXML("creds.xml").getAddress();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
-
-
-
-
-
-
-
-
 
 
     private Connection conn;
@@ -111,6 +105,7 @@ public class DbWorkerItea2 {
         } catch (SQLException e) {
             System.out.println("SQL exception " + e.getMessage());
         }
+        //close();
         return list;
 
 

@@ -4,6 +4,7 @@ public class Creds {
 
     private String login;
     private String password;
+    private String address;
 
 
 
@@ -14,6 +15,7 @@ public class Creds {
     public Creds(String login, String password) {
         this.login = login;
         this.password = password;
+        this.address = address;
 
     }
 
@@ -31,5 +33,14 @@ public class Creds {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

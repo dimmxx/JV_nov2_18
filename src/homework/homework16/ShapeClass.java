@@ -10,6 +10,8 @@ public class ShapeClass {
     private String user = "Borysov Dmytro";
 
 
+
+
     public ShapeClass(){
 
     }
@@ -77,8 +79,8 @@ public class ShapeClass {
     public boolean add() {
         DbWorkerItea2 worker = new DbWorkerItea2();
         worker.addShape(this);
-        worker = null;
-        return false;
+        worker.close();
+        return true;
     }
 
 
