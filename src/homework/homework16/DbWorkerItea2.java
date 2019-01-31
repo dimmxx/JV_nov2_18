@@ -10,14 +10,11 @@ import java.util.Set;
 public class DbWorkerItea2 {
 
 
+    private final static String ADD_SHAPE = "INSERT INTO mate (name, area, perimeter, user) VALUES (?, ?, ?, ?)";
+    private final static String GET_SHAPE_ALL = "SELECT * FROM mate";
+
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
     static String DB_URL;
-
-            //= "jdbc:mysql://s3.thehost.ua/itea2";
-
-//    static final String USER = "helen";
-//    static final String PASS = "123456";
-
 
     private String USER;
     private String PASS;
@@ -27,18 +24,14 @@ public class DbWorkerItea2 {
         try {
             USER = XmlController.readXML("creds.xml").getLogin();
             PASS = XmlController.readXML("creds.xml").getPassword();
-            DB_URL = XmlController.readXML("creds.xml").getAddress();
+            DB_URL = "jdbc:mysql://" + XmlController.readXML("creds.xml").getAddress();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
 
-
     private Connection conn;
     private Statement st;
-
-    private final static String ADD_SHAPE = "INSERT INTO mate (name, area, perimeter, user) VALUES (?, ?, ?, ?)";
-    private final static String GET_SHAPE_ALL = "SELECT * FROM mate";
 
     public DbWorkerItea2() {
         try {
@@ -107,7 +100,6 @@ public class DbWorkerItea2 {
         }
         //close();
         return list;
-
-
+        
     }
 }

@@ -6,13 +6,11 @@ public class Creds {
     private String password;
     private String address;
 
-
-
     public Creds(){
 
     }
 
-    public Creds(String login, String password) {
+    public Creds(String login, String password, String address) {
         this.login = login;
         this.password = password;
         this.address = address;
