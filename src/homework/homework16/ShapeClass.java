@@ -11,7 +11,6 @@ public class ShapeClass {
 
 
 
-
     public ShapeClass(){
 
     }
@@ -86,13 +85,7 @@ public class ShapeClass {
 
     @Override
     public String toString() {
-        return "\nShapeClass{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", area=" + area +
-                ", perimeter=" + perimeter +
-                ", user='" + user + '\'' +
-                '}';
+        return id + name + area + perimeter + user;
     }
 
     public void printFigure() {
