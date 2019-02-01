@@ -39,7 +39,7 @@ public class Test1 {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+//
 //        String updt = "CREATE TABLE mate (id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(30), area VARCHAR(30), perimeter VARCHAR(30), user VARCHAR(50));";
 //        try {
 //            st.executeUpdate(updt);
@@ -70,18 +70,13 @@ public class Test1 {
             e.printStackTrace();
         }
 
-
-//        String sql3 = "DROP mate";
+//        String DROP_MATE = "DROP TABLE mate";
 //        try {
-//            ResultSet rs = st.executeQuery(sql1);
-//
-//            while (rs.next()) {
-//                System.out.println(rs.getString(1) + " | " + rs.getString(2) + " | " + rs.getString(3)
-//                        + " | " + rs.getString(4)+ " | " + rs.getString(5));
-//            }
+//            st.executeUpdate(DROP_MATE);
 //        } catch (SQLException e) {
 //            e.printStackTrace();
 //        }
+
 
 
 

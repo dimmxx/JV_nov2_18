@@ -22,8 +22,10 @@ public class GraphicsEn extends JFrame {
     private JButton buttonBack = new JButton("Back");
     private JButton buttonShow = new JButton("Show shapes");
     private JTextField field1 = new JTextField(10);
-    private JLabel labeldb = new JLabel();
+    //private JLabel labeldb = new JLabel();
     private JTextArea textArea = new JTextArea();
+
+
 
     JPanel panelShape = getPanelShape();
 
@@ -82,7 +84,8 @@ public class GraphicsEn extends JFrame {
         panel.add(field1);
 
 
-        labeldb.setSize(100, 100);
+        //labeldb.setSize(100, 100);
+
         panel.add(textArea);
 
         return panel;

@@ -85,7 +85,7 @@ public class ShapeClass {
 
     @Override
     public String toString() {
-        return id + name + area + perimeter + user;
+        return "\n" + id + " " + name + " " + area + " " + perimeter + " " + user;
     }
 
     public void printFigure() {
