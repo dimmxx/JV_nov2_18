@@ -42,6 +42,8 @@ public class ShapeTable extends JPanel {
 
         public void fillArray(){
 
+            data[1][0] = "8585";
+
 
             
 

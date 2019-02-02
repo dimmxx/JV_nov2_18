@@ -88,22 +88,24 @@ public class Test1 {
             while (rs.next()) {
                 System.out.println(rs.getString(1) + " | " + rs.getString(2) + " | " + rs.getString(3)
                         + " | " + rs.getString(4) + " | " + rs.getString(5));
+
             }
+            rs.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
 
-//        String sql5 = "SELECT COUNT (id) AS total FROM mate WHERE id = 1";
-//        try {
-//            ResultSet rs = st.executeQuery(sql5);
-//            rs.next();
-//            int rows = rs.getInt("total");
-//            System.out.println(rows);
-//
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
+        String sql5 = "SELECT MAX(id) AS total FROM mate";
+        try {
+            ResultSet rs = st.executeQuery(sql5);
+            rs.next();
+            int rows = rs.getInt("total");
+            System.out.println(rows);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
 
 
