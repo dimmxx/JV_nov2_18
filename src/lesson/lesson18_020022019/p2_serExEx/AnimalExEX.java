@@ -1,16 +1,17 @@
-package lesson.Lesson18_020022019;
+package lesson.lesson18_020022019.p2_serExEx;
 
-public class Dog {
+import java.io.Serializable;
+
+public class AnimalExEX {
 
     private String name;
     private int age;
 
-    public Dog(){
+    public AnimalExEX(){
 
     }
 
-
-    public Dog(String name, int age) {
+    public AnimalExEX(String name, int age) {
         this.name = name;
         this.age = age;
     }
@@ -31,11 +32,14 @@ public class Dog {
         this.age = age;
     }
 
+
     @Override
     public String toString() {
-        return "Dog{" +
+        return "AnimalExEX{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
                 '}';
     }
+
+
 }

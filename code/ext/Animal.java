@@ -33,7 +33,7 @@ public class Animal {
 	}
 
 	public void getInfo() {
-		System.out.println("Animal [name=" + name + ", age=" + age + "]");
+		System.out.println("AnimalExEX [name=" + name + ", age=" + age + "]");
 	}
 
 }

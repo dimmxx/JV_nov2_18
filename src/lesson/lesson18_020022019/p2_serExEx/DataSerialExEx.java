@@ -1,46 +1,39 @@
-package lesson.Lesson18_020022019.p2;
+package lesson.lesson18_020022019.p2_serExEx;
 
 import java.io.*;
 
-public class DataSerial {
+public class DataSerialExEx {
+
 
     public static void main(String[] args) throws IOException {
 
-        DogD dog = new DogD("Susleg", 5);
-        OwnerD owner = new OwnerD();
+        DogExEx dog = new DogExEx("Susleg", 5);
+        OwnerExEx owner = new OwnerExEx();
         owner.setName("Max");
         dog.setOwner(owner);
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream(baos);
-        oos.writeObject(dog);
 
+        dog.writeExternal(oos);
+
+
+        //oos.writeObject(dog);
 
         owner.setName("Alex");
         ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
         ObjectInputStream ois = new ObjectInputStream(bais);
 
-        DogD clonedog = null;
+        DogExEx clonedog = null;
         try {
-            clonedog = (DogD) ois.readObject();
+            //clonedog = (DogExEx) ois.readObject();
+            clonedog.readExternal(ois);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
         System.out.println(clonedog);
 
 
-
-
-
-
     }
-
-
-
-
-
-
-
-
 
 }

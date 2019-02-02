@@ -5,14 +5,14 @@ public abstract class Animal {
 
 	public Animal(String name) {
 		this.name = name;
-		System.out.println("Animal constructor");
+		System.out.println("AnimalExEX constructor");
 	}
 
 	//public abstract void getVoice();
 
 	@Override
 	public String toString() {
-		return "Animal [name=" + name + "]";
+		return "AnimalExEX [name=" + name + "]";
 	}
 
 }

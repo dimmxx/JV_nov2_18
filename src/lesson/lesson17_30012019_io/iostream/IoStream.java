@@ -1,7 +1,6 @@
-package lesson.Lesson17_30012019_io.iostream;
+package lesson.lesson17_30012019_io.iostream;
 
 import java.io.*;
-import java.util.Scanner;
 
 public class IoStream {
 

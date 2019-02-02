@@ -1,8 +1,8 @@
-package lesson.Lesson18_020022019.p2;
+package lesson.lesson18_020022019.p2_serEx;
 
 import java.io.Serializable;
 
-public class OwnerD implements Serializable {
+public class OwnerEx implements Serializable {
 
     private String name;
 
@@ -18,7 +18,7 @@ public class OwnerD implements Serializable {
 
     @Override
     public String toString() {
-        return "OwnerD{" +
+        return "OwnerExEx{" +
                 "name='" + name + '\'' +
                 '}';
     }

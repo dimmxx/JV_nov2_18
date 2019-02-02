@@ -1,4 +1,4 @@
-package lesson.Lesson18_020022019.p2;
+package lesson.lesson18_020022019.p2_serFile;
 
 import java.io.*;
 

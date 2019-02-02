@@ -10,7 +10,7 @@ public class CartMAin {
 		Cart cart = new Cart();
 		//customer.addCart(cart);
 		//customer.cart.addProduct(product);
-		//customer.addProduct(p1);
+		//customer.addProduct(p1_dataStreams);
 		cart.addProduct(p1);
 		cart.addProduct(p2);
 		cart.addProduct(p3);

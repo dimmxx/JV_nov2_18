@@ -1,21 +1,21 @@
-package lesson.Lesson18_020022019;
+package lesson.lesson18_020022019.p1_dataStreams;
 
 import java.io.*;
 
 public class DataS {
 
     public static void main(String[] args) {
-        Dog dog = new Dog("Susleg", 5);
+        Dog dog = new Dog("John", 15);
 
-//        try (DataOutputStream dos = new DataOutputStream(new FileOutputStream("dog.bin"))){
-//            dos.writeUTF(dog.getName());
-//            dos.writeInt(dog.getAge());
-//            System.out.println("Stream OK");
-//
-//        }catch (IOException e){
-//            System.out.println("Error");
-//
-//        }
+        try (DataOutputStream dos = new DataOutputStream(new FileOutputStream("dog.bin"))){
+            dos.writeUTF(dog.getName());
+            dos.writeInt(dog.getAge());
+            System.out.println("Stream OK");
+
+        }catch (IOException e){
+            System.out.println("Error");
+
+        }
 
 
         try(DataInputStream dis = new DataInputStream(new FileInputStream("dog.bin"))){

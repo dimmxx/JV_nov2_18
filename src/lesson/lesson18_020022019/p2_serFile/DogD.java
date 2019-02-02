@@ -1,19 +1,30 @@
-package lesson.Lesson18_020022019.p2;
+package lesson.lesson18_020022019.p2_serFile;
 
-import java.io.*;
+import java.io.Serializable;
 
-public class Animal {  //Serializable
+public class DogD implements Serializable {
 
     private String name;
     private int age;
+    private OwnerD owner;
 
-    public Animal(){
+    public DogD(){
 
     }
 
-    public Animal(String name, int age) {
+
+    public DogD(String name, int age) {
         this.name = name;
         this.age = age;
+    }
+
+
+    public OwnerD getOwner() {
+        return owner;
+    }
+
+    public void setOwner(OwnerD owner) {
+        this.owner = owner;
     }
 
     public String getName() {
@@ -32,14 +43,12 @@ public class Animal {  //Serializable
         this.age = age;
     }
 
-
     @Override
     public String toString() {
-        return "Animal{" +
+        return "DogDp2{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
+                ", owner=" + owner +
                 '}';
     }
-
-
 }
