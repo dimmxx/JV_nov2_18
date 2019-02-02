@@ -12,6 +12,8 @@ public class DbWorkerItea2 {
 
     private final static String ADD_SHAPE = "INSERT INTO mate (name, area, perimeter, user) VALUES (?, ?, ?, ?)";
     private final static String GET_SHAPE_ALL = "SELECT * FROM mate";
+    private final static String COUNT_RECORDS = "SELECT COUNT (id) FROM MATE";
+
 
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
     static String DB_URL;
@@ -65,6 +67,16 @@ public class DbWorkerItea2 {
         }
 
     }
+
+    public int CountRecords (){
+
+        return 0;
+    }
+
+
+
+
+
 
     public boolean addShape(ShapeClass shape) {
         try {

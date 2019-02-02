@@ -94,6 +94,23 @@ public class Test1 {
         }
 
 
+//        String sql5 = "SELECT COUNT (id) AS total FROM mate WHERE id = 1";
+//        try {
+//            ResultSet rs = st.executeQuery(sql5);
+//            rs.next();
+//            int rows = rs.getInt("total");
+//            System.out.println(rows);
+//
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+
+
+
+
+
+
+
 
 //        String updt = "INSERT INTO users (login, name, password, area, gender, comment) VALUES ('dimmxx@gmail.com', 'Borysov Dmytro', '0672998553', 'Kyiv', 'MALE', 'MateAcademy')";
 //        try {

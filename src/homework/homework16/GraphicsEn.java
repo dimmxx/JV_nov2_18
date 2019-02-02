@@ -16,6 +16,7 @@ public class GraphicsEn extends JFrame {
     private int xPos = screenSize.width / 2 - FRAME_WIDTH / 2;
     private int yPos = screenSize.height / 2 - FRAME_HEIGHT / 2;
 
+
     private JButton buttonC = new JButton("Circle");
     private JButton buttonT = new JButton("Triangle");
     private JButton buttonS = new JButton("Square");
@@ -24,7 +25,6 @@ public class GraphicsEn extends JFrame {
     private JTextField field1 = new JTextField(10);
     //private JLabel labeldb = new JLabel();
     private JTextArea textArea = new JTextArea();
-
 
 
     JPanel panelShape = getPanelShape();
@@ -42,7 +42,7 @@ public class GraphicsEn extends JFrame {
 
     }
 
-    private void initListeners(){
+    private void initListeners() {
         buttonC.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
@@ -91,43 +91,52 @@ public class GraphicsEn extends JFrame {
         return panel;
     }
 
-
-
-
-    private void ifButtonCPressed(){
+    private void ifButtonCPressed() {
         makeCircle(Integer.parseInt(field1.getText()));
     }
 
 
-    private void ifButtonTPressed(){
+    private void ifButtonTPressed() {
         makeTriangle(Integer.parseInt(field1.getText()));
     }
 
 
-    private void ifButtonSPressed(){
+    private void ifButtonSPressed() {
         makeSquare(Integer.parseInt(field1.getText()));
     }
 
-    private void ifButtonShowPressed(){
-        DbWorkerItea2 dbworker = new DbWorkerItea2();
-        textArea.setText(dbworker.getShapeAll().toString());
+    private void ifButtonShowPressed() {
+        //DbWorkerItea2 dbworker = new DbWorkerItea2();
+
+        //Create and set up the content pane.
+        ShapeTable newContentPane = new ShapeTable();
+
+        newContentPane.setOpaque(true); //content panes must be opaque
+        setContentPane(newContentPane);
+        pack();
+
+
+        //textArea.setText(dbworker.getShapeAll().toString());
+
+
+
+
     }
 
-    public Circle makeCircle(int side){
+    public Circle makeCircle(int side) {
         ShapeClass circle = new Circle(side);
         return (Circle) circle;
     }
 
-    public Square makeSquare(int side){
+    public Square makeSquare(int side) {
         ShapeClass square = new Square(side);
         return (Square) square;
     }
 
-    public Triangle makeTriangle(int side){
+    public Triangle makeTriangle(int side) {
         ShapeClass triangle = new Triangle(side);
         return (Triangle) triangle;
     }
-
 
 
 }
