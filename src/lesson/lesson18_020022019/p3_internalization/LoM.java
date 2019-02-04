@@ -11,7 +11,6 @@ public class LoM {
         String country = "EN";
         Locale locale = new Locale(lang, country);
 
-
         ResourceBundle messages = ResourceBundle.getBundle("MessageBundle", locale);
 
         System.out.println(messages.getString("hello"));

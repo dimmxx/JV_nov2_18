@@ -9,18 +9,18 @@ public class Main {
         Owner owner = new Owner("Peter");
         Cat cat = new Cat("Murzik", 2, owner);
 
-//        ObjectOutputStream oos =
-//                new ObjectOutputStream(new FileOutputStream("cat.dat"));
-//        oos.writeObject(cat);
-//        oos.flush();
-//        oos.close();
+        ObjectOutputStream oos =
+                new ObjectOutputStream(new FileOutputStream("cat.dat"));
+        oos.writeObject(cat);
+        oos.flush();
+        oos.close();
 
-        try (FileOutputStream fos = new FileOutputStream("cat1.dat")) {
-            try (ObjectOutputStream oos = new ObjectOutputStream(fos)) {
-                oos.writeObject(cat);
-            }
-        }
-        owner.setOwnername("John");
+//        try (FileOutputStream fos = new FileOutputStream("cat1.dat")) {
+//            try (ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+//                oos.writeObject(cat);
+//            }
+//        }
+//        //owner.setOwnername("John");
 
 
 
@@ -32,6 +32,9 @@ public class Main {
         }
 
         System.out.println(catClone);
+
+        cat = catClone;
+        System.out.println(cat);
 
 
 
