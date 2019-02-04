@@ -13,11 +13,41 @@ public class ShapeTable extends JPanel {
 
 
     public ShapeTable() {
-        super(new GridLayout(1, 0));
+        //super(new GridLayout(1,0));
 
-        JTable table = new JTable(new MyTableModel());
-        table.setPreferredScrollableViewportSize(new Dimension(500, 70));
+        DbWorkerItea2 worker = new DbWorkerItea2();
+        ArrayList<ShapeClass> list = new ArrayList<>();
+        list = worker.getShapeAll();
+
+        String[] columnNames = {"id",
+                                "name",
+                                "area",
+                                "perimeter",
+                                "user"};
+
+        String[][] data = new String[list.size()][5];
+
+        for(int i = 0; i < list.size(); i++){
+            data[i][0] = String.valueOf(list.get(i).getId());
+        }
+        for(int i = 0; i < list.size(); i++){
+            data[i][1] = list.get(i).getName();
+        }
+        for(int i = 0; i < list.size(); i++){
+            data[i][2] = String.valueOf(list.get(i).getArea());
+        }
+        for(int i = 0; i < list.size(); i++){
+            data[i][3] = String.valueOf(list.get(i).getPerimeter());
+        }
+        for(int i = 0; i < list.size(); i++){
+            data[i][4] = list.get(i).getUser();
+        }
+
+        final JTable table = new JTable(data, columnNames);
+        table.setPreferredScrollableViewportSize(new Dimension(900, 700));
         table.setFillsViewportHeight(true);
+
+
 
         //Create the scroll pane and add the table to it.
         JScrollPane scrollPane = new JScrollPane(table);
@@ -26,56 +56,8 @@ public class ShapeTable extends JPanel {
         add(scrollPane);
     }
 
-    class MyTableModel extends AbstractTableModel {
-
-        DbWorkerItea2 worker = new DbWorkerItea2();
-        private List<ShapeClass> list = worker.getShapeAll();
-        private int tableLength = list.size();
-
-        private String[] columnNames = {"id", "name", "area", "perimeter", "user"};
-        private String[][] data = new String[tableLength][5];
-
-        public MyTableModel(){
-            fillArray();;
-        }
 
 
-        public void fillArray(){
-
-            data[1][0] = "8585";
-
-
-            
-
-//            for (int i = 0; i < tableLength; i++){
-//                for (int k = 0; k < 5; k++){
-//                    data[i][k] = "empty";
-//                }
-//            }
-
-
-        }
-
-        public int getColumnCount() {
-            return columnNames.length;
-        }
-
-        public int getRowCount() {
-            //return data.length;
-            return 0;
-        }
-
-        public String getColumnName(int col) {
-            return columnNames[col];
-        }
-
-        @Override
-        public Object getValueAt(int rowIndex, int columnIndex) {
-            return null;
-        }
-
-
-    }
 
 
 }

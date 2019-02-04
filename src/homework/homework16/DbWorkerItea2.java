@@ -93,8 +93,8 @@ public class DbWorkerItea2 {
         }
     }
 
-    public List<ShapeClass> getShapeAll() {
-        List<ShapeClass> list = new ArrayList<>();
+    public ArrayList<ShapeClass> getShapeAll() {
+        ArrayList<ShapeClass> list = new ArrayList<>();
         String query = GET_SHAPE_ALL;
         try {
             ResultSet rs = st.executeQuery(query);
