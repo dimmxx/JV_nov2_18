@@ -14,8 +14,8 @@ public class Pudge implements Serializable {
 
     }
 
-    public Pudge(String imageURL, Locale locale) {
-        this.imageURL = imageURL;
+    public Pudge(Locale locale) {
+        //this.imageURL = imageURL;
         this.locale = locale;
     }
 

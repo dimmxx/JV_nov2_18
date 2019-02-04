@@ -1,6 +1,8 @@
 package homework.homework18;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -10,7 +12,16 @@ public class MainPudgeStream {
 
 
 
-        Pudge pudge = new Pudge("res/internalization/England.png", new Locale("en", "EN"));
+//        Locale localeEN = new Locale("en", "EN");
+//        Locale localeRU = new Locale("ru", "RU");
+//
+//        Pudge pudge = new Pudge(localeEN);
+//
+//        ResourceBundle text = ResourceBundle.getBundle("TextBundle", pudge.getLocale());
+//
+//        System.out.println(text.getString("save"));
+//
+//
 
         //DataStreamEngine.saveState(pudge);
 
@@ -26,7 +37,7 @@ public class MainPudgeStream {
 //        System.out.println(text.getString("save"));
 //        System.out.println(text.getString("load"));
 //
-//        new GUIEngine(pudge);
+        new GUIEngine();
 
 
 
