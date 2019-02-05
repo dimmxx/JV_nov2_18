@@ -6,7 +6,7 @@ import java.util.Locale;
 public class Pudge implements Serializable {
 
 
-    private String imageURL;
+    //private String imageURL;
     private Locale locale;
     //private long serialVersionUID = 1L;
 
@@ -19,13 +19,13 @@ public class Pudge implements Serializable {
         this.locale = locale;
     }
 
-    public String getImageURL() {
-        return imageURL;
-    }
+//    public String getImageURL() {
+//        return imageURL;
+//    }
 
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
-    }
+//    public void setImageURL(String imageURL) {
+//        this.imageURL = imageURL;
+//    }
 
     public Locale getLocale() {
         return locale;
@@ -35,11 +35,19 @@ public class Pudge implements Serializable {
         this.locale = locale;
     }
 
+//    @Override
+//    public String toString() {
+//        return "Pudge{" +
+//                "imageURL='" + imageURL + '\'' +
+//                ", locale=" + locale +
+//                '}';
+//    }
+
+
     @Override
     public String toString() {
         return "Pudge{" +
-                "imageURL='" + imageURL + '\'' +
-                ", locale=" + locale +
+                "locale=" + locale +
                 '}';
     }
 }

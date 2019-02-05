@@ -13,8 +13,8 @@ import java.util.ResourceBundle;
 
 public class GUIEngine extends JFrame {
 
-    public final static int FRAME_WIDTH = 900;
-    public final static int FRAME_HEIGHT = 800;
+    public final static int FRAME_WIDTH = 800;
+    public final static int FRAME_HEIGHT = 350;
 
     private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
@@ -25,8 +25,6 @@ public class GUIEngine extends JFrame {
     private static final Locale localeFR = new Locale("fr", "FR");
     private static final Locale localeES = new Locale("es", "ES");
     private static final Locale localeRU = new Locale("ru", "RU");
-
-    private Image image;
 
     private JButton buttonRU = new JButton("Русский");
     private JButton buttonSP = new JButton("Español");
@@ -41,7 +39,8 @@ public class GUIEngine extends JFrame {
 
     JPanel panel = getPanel();
 
-    Pudge pudge = null;
+    private Image image;
+    Pudge pudge = new Pudge(localeEN);
     ResourceBundle localData = null;
 
     public GUIEngine() throws IOException, ClassNotFoundException {
@@ -66,13 +65,9 @@ public class GUIEngine extends JFrame {
         buttonRU.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                try {
+
                     ifButtonRUressed();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
+
             }
         });
 
@@ -80,6 +75,7 @@ public class GUIEngine extends JFrame {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 ifButtonFRPressed();
+
             }
         });
 
@@ -109,10 +105,14 @@ public class GUIEngine extends JFrame {
 
     private JPanel getPanel() throws IOException, ClassNotFoundException {
         JPanel panel = new JPanel(new FlowLayout());
+
         panel.setBackground(new Color(70, 80, 255));
 
+        labelPhrase.setFont(new Font("Serif", Font.BOLD, 32));
+        labelPhrase.setForeground(new Color(255,255,255));
+
         pudge = DataStreamEngine.loadState();
-        localize();
+        localize(pudge);
 
         panel.add(buttonRU);
         panel.add(buttonEN);
@@ -121,21 +121,17 @@ public class GUIEngine extends JFrame {
         panel.add(buttonSave);
         panel.add(buttonLoad);
         panel.add(labelPhrase);
-        panel.add(drawImage());
+
+        panel.add(label);
+        drawImageIcon();
+        panel.revalidate();
+        panel.repaint();
 
         return panel;
     }
 
-    public void localize() {
-        localData = ResourceBundle.getBundle("TextBundle", pudge.getLocale());
-        buttonSave.setText(localData.getString("save"));
-        buttonLoad.setText(localData.getString("load"));
-        labelPhrase.setText(localData.getString("phrase"));
-    }
+    public void drawImageIcon() {
 
-
-    public JLabel drawImage() {
-        JLabel label = new JLabel();
         try {
             image = ImageIO.read(new File(localData.getString("url")));
         } catch (
@@ -144,38 +140,71 @@ public class GUIEngine extends JFrame {
         }
         ImageIcon icon = new ImageIcon(image);
         label.setIcon(icon);
-        return label;
     }
 
-
-    private void ifButtonRUressed() throws IOException, ClassNotFoundException {
-        Pudge pudge = new Pudge(localeRU);
-        localize();
-
+    private void ifButtonRUressed() {
+        localize(new Pudge(localeRU));
+        pudge.setLocale(localeRU);
+        drawImageIcon();
+        panel.revalidate();
+        panel.repaint();
     }
 
     private void ifButtonENPressed() {
+        localize(new Pudge(localeEN));
+        pudge.setLocale(localeEN);
+        drawImageIcon();
+        panel.revalidate();
+        panel.repaint();
 
     }
 
     private void ifButtonFRPressed() {
 
+        localize(new Pudge(localeFR));
+        pudge.setLocale(localeFR);
+        drawImageIcon();
+        panel.revalidate();
+        panel.repaint();
     }
 
     private void ifButtonSPPressed() {
-
-
+        localize(new Pudge(localeES));
+        pudge.setLocale(localeES);
+        drawImageIcon();
+        panel.revalidate();
+        panel.repaint();
     }
 
     private void ifButtonSavePressed() {
 
-
+        try {
+            DataStreamEngine.saveState(pudge);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void ifButtonLoadPressed() {
-
-
+        try {
+            pudge = DataStreamEngine.loadState();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        localize(pudge);
+        drawImageIcon();
+        panel.revalidate();
+        panel.repaint();
     }
 
+    public void localize(Pudge pudge) {
+        localData = ResourceBundle.getBundle("TextBundle", pudge.getLocale());
+        buttonSave.setText(localData.getString("save"));
+        buttonLoad.setText(localData.getString("load"));
+        labelPhrase.setText(localData.getString("phrase"));
+
+    }
 
 }

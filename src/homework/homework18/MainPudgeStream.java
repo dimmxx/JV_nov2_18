@@ -11,24 +11,26 @@ public class MainPudgeStream {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
 
-
 //        Locale localeEN = new Locale("en", "EN");
+//        Locale localeFR = new Locale("fr", "FR");
+//        Locale localeES = new Locale("es", "ES");
 //        Locale localeRU = new Locale("ru", "RU");
 //
-//        Pudge pudge = new Pudge(localeEN);
 //
-//        ResourceBundle text = ResourceBundle.getBundle("TextBundle", pudge.getLocale());
+        //Pudge pudge = new Pudge(localeEN);
+////
+////        ResourceBundle text = ResourceBundle.getBundle("TextBundle", pudge.getLocale());
+////
+////        System.out.println(text.getString("save"));
+////
+////
 //
-//        System.out.println(text.getString("save"));
-//
-//
-
         //DataStreamEngine.saveState(pudge);
-
-//       Pudge pudge = DataStreamEngine.loadState();
 //
-//        System.out.println(pudge);
-//
+//       Pudge pudge1 = DataStreamEngine.loadState();
+////
+//        System.out.println(pudge1);
+////
 //        Locale locale = new Locale(pudge.getLang(), pudge.getCountry());
 //
 //
@@ -40,13 +42,7 @@ public class MainPudgeStream {
         new GUIEngine();
 
 
-
-
-
-
     }
-
-
 
 
 }
