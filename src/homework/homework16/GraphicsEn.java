@@ -8,8 +8,8 @@ import java.util.ArrayList;
 
 public class GraphicsEn extends JFrame {
 
-    public final static int FRAME_WIDTH = 900;
-    public final static int FRAME_HEIGHT = 800;
+    public final static int FRAME_WIDTH = 700;
+    public final static int FRAME_HEIGHT = 500;
 
     private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 

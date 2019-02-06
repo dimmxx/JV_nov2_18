@@ -44,7 +44,7 @@ public class ShapeTable extends JPanel {
         }
 
         final JTable table = new JTable(data, columnNames);
-        table.setPreferredScrollableViewportSize(new Dimension(900, 700));
+        table.setPreferredScrollableViewportSize(new Dimension(700, 500));
         table.setFillsViewportHeight(true);
 
 
