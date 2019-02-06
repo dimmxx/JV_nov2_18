@@ -40,8 +40,11 @@ public class GUIEngine extends JFrame {
     JPanel panel = getPanel();
 
     private Image image;
-    Pudge pudge = new Pudge(localeEN);
-    ResourceBundle localData = null;
+
+
+    Pudge pudge;
+
+    ResourceBundle localData;
 
     public GUIEngine() throws IOException, ClassNotFoundException {
         super("Pudge International");
@@ -112,6 +115,7 @@ public class GUIEngine extends JFrame {
         labelPhrase.setForeground(new Color(255,255,255));
 
         pudge = DataStreamEngine.loadState();
+
         localize(pudge);
 
         panel.add(buttonRU);

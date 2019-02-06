@@ -1,4 +1,4 @@
-package lesson.lesson11_26122018_swing.p4_pass;
+package lesson.lesson11_26122018_swing.p5_cardLayout;
 
 import javax.swing.*;
 import java.awt.*;
@@ -6,7 +6,24 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
 
-public class Password extends JFrame {
+public class PasswordCL extends JFrame {
+
+    //https://stackoverflow.com/questions/26170974/how-can-i-replace-one-jpanel-with-another-jpanel-in-the-same-position
+
+
+    public static final String LOGIN_PANEL = "login_panel";
+    public static final String BACK_PANEL = "back_panel";
+
+    private CardLayout cardLayout = new CardLayout();
+
+    JPanel panelLogin = new JPanel();
+    JPanel panelBack = new JPanel();
+
+
+
+
+
+
 
     JButton button = new JButton("OK");
     JButton buttonBack = new JButton("Back");
@@ -20,7 +37,7 @@ public class Password extends JFrame {
     JPanel panel2 = getPanel2();
 
 
-    public Password() {
+    public PasswordCL() {
         super("My Frame");
         setSize(500, 300);
         add(panel1);

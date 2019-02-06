@@ -21,7 +21,7 @@ public class MyWindows2 extends JFrame {
         JPanel panel = new JPanel();
 
         JLabel label1 = new JLabel("Login");
-        JLabel label2 = new JLabel("Password");
+        JLabel label2 = new JLabel("PasswordCL");
 
         JTextField tField1 = new JTextField();
         JTextField tField2 = new JTextField();
