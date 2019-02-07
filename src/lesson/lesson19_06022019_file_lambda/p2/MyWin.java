@@ -1,8 +1,6 @@
-package lesson.lesson19_06022019.p2;
+package lesson.lesson19_06022019_file_lambda.p2;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class MyWin extends JFrame {
 
