@@ -7,7 +7,9 @@ public class FileManagerMain {
 
     public static void main(String[] args) {
 
-        String testPath = "/home/master/Documents/Test_DIR"; //LINUX
+        //String testPath = "/home/master/Documents/Test_DIR"; //LINUX
+        String testPath = "/Users/mint/Documents/Test_DIR"; //Mac
+
 
         Scanner scanner = new Scanner(System.in);
 
@@ -16,7 +18,6 @@ public class FileManagerMain {
         while (go) {
             File files = new File(testPath);
             System.out.println(files);
-
 
 
             for (File file : files.listFiles()) {
@@ -31,20 +32,23 @@ public class FileManagerMain {
             }
 
             String move = scanner.nextLine();
-
+            String moveMod = move.substring(3);
 
             System.out.println(move);
+            System.out.println(moveMod);
+            System.out.println(move.substring(0 ,2));
 
-            if(move.equals("cd ..")){
+            if (move.equals("cd ..")) {
                 testPath = files.getParent();
 
-            }else if(move.equals(cdDir)){
+            } else if (move.substring(0 ,3).equals("cd ") & new File(testPath + "/" + moveMod).exists()){
+                testPath += "/" + moveMod;
+        }
 
-                if (new File(testPath + "/" + move).exists())
-                    testPath += "/" + move;
-
-            }else if(move.equals("exit")){
+            else if(move.equals("exit")){
                 go = false;
+            } else {
+                System.out.println("-bash: command not found...");
             }
 
 
