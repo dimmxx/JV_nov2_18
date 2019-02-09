@@ -1,0 +1,6 @@
+
+jar -cmf Pudge.mf Pudge.jar lesson/lesson20_09022019_socket/p3/Pudge.class
+
+java -cp Pudge.jar lesson/lesson20_09022019_socket/p3/Main
+
+jar -cmf manifest Pudge.jar lesson/lesson20_09022019_socket/p3/*.class
