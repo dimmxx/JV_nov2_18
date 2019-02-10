@@ -6,7 +6,7 @@ public class MainNew {
     public static void main(String[] args) {
 
 
-        System.out.println(new Pudge().getName());
+        //System.out.println(new Pudge().getName());
 
 
 
