@@ -1,0 +1,6 @@
+mvn archetype:generate
+
+maven-archetype-quickstart
+
+
+mvn install:install-file -Dfile=untitled111.jar -DgroupId=ua.com.dota -DartifactId=dota2 -Dversion=666.13 -Dpackaging=jar

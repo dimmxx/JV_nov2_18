@@ -10,6 +10,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
 
 
 public class SimpleTable implements ListSelectionListener {
@@ -97,6 +98,28 @@ public class SimpleTable implements ListSelectionListener {
             }
         }
     }
+
+
+
+//    public void fileTable(){
+//
+//         String testPath = "/home/master/Documents/Test_DIR"; //LINUX
+//        //String testPath = "/Users/mint/Documents/test"; //Mac
+//
+//        File files = new File(testPath);
+//
+//
+//        final String[] ColNames = {"Name", "Size", "Permissions"};
+//        final String[][] fileData = new String[files.listFiles().length][3];
+//
+//        for (int i = 0; i < fileData.length; i++){
+//            fileData[i][0] = files.list();
+//
+//
+//
+//    }
+
+
 
     public static void main(String[] args) {
         new SimpleTable();
