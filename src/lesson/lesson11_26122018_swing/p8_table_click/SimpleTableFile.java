@@ -15,7 +15,9 @@ import java.util.Arrays;
 
 public class SimpleTableFile implements ListSelectionListener {
 
-    JTable aTable;
+    private JTable aTable;
+    private String[] names = {"File name", "Dir/file", "File size"};
+
 
     public SimpleTableFile() {
         JFrame frame = new JFrame("File Manager");
@@ -25,40 +27,11 @@ public class SimpleTableFile implements ListSelectionListener {
             }
         });
 
-        String testPath = "/home/master/Documents/Test_DIR"; //LINUX
-        //String testPath = "/Users/mint/Documents/test"; //Mac
-        File files = new File(testPath);
+        //String testPath = "/home/master/Documents/Test_DIR"; //LINUX
+        String testPath = "/Users/mint/Documents/test"; //Mac
 
 
-        String[] names = {"File name", "Dir/file", "File size"};
-
-        String data [][] = new String[files.list().length + 1][3];
-
-
-        data[0][0] = "..";
-        for (int i = 0; i < files.list().length; i++){
-            data[i + 1][0] = files.list()[i];
-        }
-
-        for (int i = 0; i < files.list().length; i++){
-
-            if (files.listFiles()[i].isDirectory()){
-                data[i + 1][1] = "DIR";
-            } else{
-                data[i + 1][1] = "file";
-            }
-        }
-
-        for (int i = 0; i < files.list().length; i++){
-            data[i + 1][2] = String.valueOf(files.list()[i].length());
-        }
-
-
-
-
-
-
-        aTable = new JTable(data, names);
+        aTable = new JTable(fileTable(testPath), names);
 
         ListSelectionModel listMod = aTable.getSelectionModel();
         listMod.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -80,6 +53,7 @@ public class SimpleTableFile implements ListSelectionListener {
     }
 
     public void valueChanged(ListSelectionEvent e) {
+        int maxRows;
         int[] selRows;
         Object value;
 
@@ -96,6 +70,32 @@ public class SimpleTableFile implements ListSelectionListener {
                 System.out.println();
             }
         }
+    }
+
+    private String[][] fileTable (String path){
+
+        File files = new File(path);
+        String data [][] = new String[files.list().length + 1][3];
+
+        data[0][0] = "..";
+
+        int counter = 0;
+        for (int i = 0; i < files.list().length; i++) {
+            if (files.listFiles()[i].isDirectory()) {
+                data[counter + 1][0] = files.list()[i];
+                data[counter + 1][1] = "DIR";
+                counter++;
+            }
+        }
+        for (int i = 0; i < files.list().length; i++) {
+            if (files.listFiles()[i].isFile()) {
+                data[counter + 1][0] = files.list()[i];
+                data[counter + 1][1] = "";
+                counter++;
+            }
+        }
+
+        return data;
     }
 
 
